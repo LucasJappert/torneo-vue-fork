@@ -6,10 +6,16 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
-    component: HomeView
+    component: () => import ("../views/HomeView")
   },
+  {
+    path: '/info-categoria',
+    name: 'InfoCategoria',
+    component: () => import ("../views/InfoCategoria")
+  },
+ 
 ]
 
 const router = new VueRouter({

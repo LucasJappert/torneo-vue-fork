@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Header />
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img  class="bandera" alt="Vue logo" src="../assets/bandera.jpg">
   </div>
 </template>
 
@@ -14,3 +14,12 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+
+
+.bandera{
+  width: 100%;
+  top:0
+}
+</style>
