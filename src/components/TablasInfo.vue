@@ -105,7 +105,7 @@ export default {
 	display: table-footer-group;
 	font-weight: bold;
 }
-.divTableBody {
+/* .divTableBody {
 	display: table-row-group;
     
     & .divTableCell{
@@ -119,11 +119,11 @@ export default {
 
         &:hover{
                 background-color: rgb(190, 189, 189);
-            }
+            } */
         
         
-}
-}
+/* }
+} */
 
 
 </style>

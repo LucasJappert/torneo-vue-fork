@@ -19,6 +19,7 @@ body{
   color: #2c3e50;
     width: 100%;
   overflow: hidden;
+  min-height: 300px;
 
 }
 

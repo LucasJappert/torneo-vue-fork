@@ -3,6 +3,7 @@
    <router-link :to="{ name:'home'}">
       <img class="icon" src="../assets/humbertito.png">
     </router-link>
+    
       <div class="itemMenu">
         <span>Información</span>
           <div class="divDesplegable">
@@ -11,21 +12,40 @@
                 Categorías
               </router-link>
             </div>
-            <div>Instituciones</div>
-            <div>Equipos</div>
+            <div>
+              <router-link :to="{ name:'InfoInstitucion'}">
+                Instituciones
+              </router-link>
+            </div>
+            <div>
+              <router-link :to="{ name:'InfoEquipos'}">
+              Equipos
+              </router-link>
+              </div>
+            <div>
+              Reglamento
+            </div>
           </div>
       </div>
       <!-- TODO:Llevar itemMenu a un componente -->
       <div class="itemMenu">
         <span>Fase de Grupos</span>
           <div class="divDesplegable">
-            <div>Categorías</div>
+            <div>Categoría 2010</div>
+            <div>Categoría 2011</div>
+            <div>Categoría 2012</div>
+            <div>Categoría 2013</div>
+            <div>Categoría 2014</div>
           </div>
       </div>
       <div class="itemMenu">
         <span>Fase Final</span>
           <div class="divDesplegable">
-            <div>Categorías</div>
+            <div>Categoría 2010</div>
+            <div>Categoría 2011</div>
+            <div>Categoría 2012</div>
+            <div>Categoría 2013</div>
+            <div>Categoría 2014</div>
           </div>
       </div>
       <div class="itemMenu">
@@ -34,10 +54,13 @@
             <div>Canchas</div>
             
           </div>
+      
           
       </div>
+      <router-link :to="{ name:'Login'}">
+      <img class="icon-user" src="../assets/usuario.png">  
+      </router-link>
       
-        
       
   </div>
 </template>

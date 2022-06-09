@@ -1,37 +1,29 @@
 <template>
   <div>
-    <Header />
-    
-      <div class="Categoria">
-        Categorías:
+      <Header />
+       <div class="Instituciones">
+        Instituciones:
       </div>
-        <TablasInfo />
-     
-     <img class="humbertito" src="../assets/humbertito.png">
+      <TablasInstitucion />
 
- 
   </div>
-  
 </template>
 
 <script>
 import Header from "../components/Header.vue";
-import TablasInfo from "../components/TablasInfo.vue";
+import TablasInstitucion from "../components/TablasInstitucion.vue";
 export default {
   name: 'HomeView',
   components: {
-    Header,TablasInfo
+    Header,TablasInstitucion
   }
 }
-
-
 </script>
 
-<style scoped lang="scss">
-.humbertito{
-  width: 300px;
-}
-.Categoria{
+
+<style>
+
+.Instituciones{
   font-size: 20px;
   padding: 10px;
   left:0px;
@@ -39,6 +31,4 @@ export default {
   font-weight: bold;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
-
-
 </style>
