@@ -1,17 +1,13 @@
 <template>
   <div class="home">
-    <Header />
-    <img  class="bandera" alt="Vue logo" src="../assets/bandera.jpg">
+   
+    <img  class="bandera" alt="Vue logo" src="../assets/imagenes/bandera.jpg">
   </div>
 </template>
 
 <script>
-import Header from "../components/Header.vue";
 export default {
-  name: 'HomeView',
-  components: {
-    Header
-  }
+
 }
 </script>
 

@@ -1,0 +1,202 @@
+{
+    "id":1,
+    "categoria":2010,
+    "arrayGrupos":[
+        {
+            "id":1,
+            "equipos":[
+                {
+                    "nombre":" Equipo 1",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 2",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 3",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 4",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                }
+            ]
+        },
+        {
+            "id":2,
+            "equipos":[
+                {
+                    "nombre":"Equipo 1",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 2",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 3",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 4",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                }
+            ]
+        },
+        {
+            "id":3,
+            "equipos":[
+                {
+                    "nombre":"Equipo 1",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 2",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 3",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 4",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                }
+            ]
+        },
+        {
+            "id":4,
+            "equipos":[
+                {
+                    "nombre":"Equipo 1",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 2",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 3",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                },
+                {
+                    "nombre":"Equipo 4",
+                    "pj": 0,
+                    "pg": 0,
+                    "pe": 0,
+                    "pp": 0,
+                    "gf": 0,
+                    "gc": 0,
+                    "dg": 0,
+                    "ptos": 0
+                }
+            ]
+        }
+]
+}

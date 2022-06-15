@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <Header />
-    
-      <div class="Categoria">
-        Categorías:
-      </div>
+  <div class="view-container">
+  
+    <div class="sub-container">
+         <div class="Categoria">
+          Categorías:
+        </div>
         <TablasInfo />
      
-     <img class="humbertito" src="../assets/humbertito.png">
+         </div>
+      
 
  
   </div>
@@ -15,12 +16,11 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue";
 import TablasInfo from "../components/TablasInfo.vue";
 export default {
   name: 'HomeView',
   components: {
-    Header,TablasInfo
+    TablasInfo
   }
 }
 
@@ -28,16 +28,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.humbertito{
-  width: 300px;
-}
+
+
 .Categoria{
-  font-size: 20px;
+  font-size: 1.1em;
   padding: 10px;
-  left:0px;
-  padding-right: 570px;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: left;
+  
   }
 
 

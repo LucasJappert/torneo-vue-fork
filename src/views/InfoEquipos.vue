@@ -1,20 +1,22 @@
 <template>
   <div>
-  <Header />
-    <div class="Equipos">
-      Equipos:
-    </div>
-  <TablasEquipos/>
+    <div class="view-container">
+      <div class="sub-container">
+         <div class="Equipos">
+          Equipos:
+         </div>
+            <TablasEquipos/>
+      </div>
+    </div>       
   </div>
 </template>
 
 <script>
-import Header from "../components/Header.vue";
 import TablasEquipos from "../components/TablasEquipos.vue";
 export default {
   name: 'HomeView',
   components: {
-    Header,TablasEquipos
+    TablasEquipos
   }
 }
 </script>
@@ -22,12 +24,12 @@ export default {
 <style>
 
 .Equipos{
-  font-size: 20px;
+  font-size: 1.1em;
   padding: 10px;
   left:0px;
-  padding-right: 570px;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: left;
+ 
 
 }
 

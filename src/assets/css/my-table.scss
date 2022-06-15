@@ -1,0 +1,50 @@
+.my-table-content{
+    width:100%;
+    @media (max-width: 800px){
+        overflow-x: scroll;
+    }
+}
+.my-table{
+    background-color: rgba(255,255,255,0.8);;
+    min-width:800px;
+    width:80%;
+    display: inline-grid;
+    justify-items: center;
+    font-size: .9em;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+    &-header, &-item{
+        max-width: 100%;
+        grid-template-columns: minmax(0, 2.5fr) minmax(0, 2fr) minmax(0, 1.5fr) minmax(0, 0.5fr);
+        display: grid;
+        align-items: center;
+        width: 100%;
+        &.grupoColumns{
+            grid-template-columns: minmax(0, 8fr) repeat(8, minmax(0, 1fr));
+        }
+    }
+    &-header > div, &-item > div{
+        padding: 10px 5px;
+        // border: 1px solid rgba(0,0,0,.05);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    &-header{
+        border-bottom: 1px solid rgb(71, 70, 70);
+        font-weight: 700;
+        background: rgb(71, 70, 70);
+        color: white;
+    }
+    &-item{
+        cursor: pointer;
+        &:nth-child(even){
+            background: rgba(0,0,0,.05);
+        }
+        &:hover{
+            background: rgba(0,0,0,.15);
+        }
+    }
+}
+

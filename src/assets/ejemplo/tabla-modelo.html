@@ -1,0 +1,25 @@
+<div class="my-table-content">
+	<div class="my-table">
+		<div class="my-table-header productoresColumns">
+			<div>Productor</div>
+			<div>Usuario</div>
+			<div>Localidad</div>
+			<div>Telefono</div>
+			<div>Vendedor</div>
+			<div>
+				...
+			</div>
+		</div>
+		<div class="my-table-item productoresColumns"
+			v-for="item in paged.currentArray" :key="item._Id">
+			<div>{{ `${item._Apellido}, ${item._Nombre}` }}</div>
+			<div>{{ item.userName }}</div>
+			<div>{{ item._Localidad }}</div>
+			<div>{{ item._Telefono }}</div>
+			<div>{{ item._Vendedor }}</div>
+			<div>
+				....
+			</div>
+		</div>
+	</div>
+</div>

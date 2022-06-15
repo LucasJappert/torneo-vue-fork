@@ -1,7 +1,7 @@
 <template>
   <div class="containerMenu">
    <router-link :to="{ name:'home'}">
-      <img class="icon" src="../assets/humbertito.png">
+      <img class="icon" src="../assets/imagenes/humbertito.png">
     </router-link>
     
       <div class="itemMenu">
@@ -31,11 +31,12 @@
       <div class="itemMenu">
         <span>Fase de Grupos</span>
           <div class="divDesplegable">
-            <div>Categoría 2010</div>
-            <div>Categoría 2011</div>
-            <div>Categoría 2012</div>
-            <div>Categoría 2013</div>
-            <div>Categoría 2014</div>
+            <div v-for="(item, index) in infoCategorias" :key="index">
+              <router-link :to="{ name:'FaseGrupos', params: {id:item}}">
+                Categoría {{item}}
+              </router-link>
+            </div>
+            
           </div>
       </div>
       <div class="itemMenu">
@@ -58,7 +59,7 @@
           
       </div>
       <router-link :to="{ name:'Login'}">
-      <img class="icon-user" src="../assets/usuario.png">  
+      <img class="icon-user" src="../assets/imagenes/usuario.png">  
       </router-link>
       
       
@@ -68,7 +69,15 @@
 <script>
 //TODO: hacer mas tarde
 export default {
-
+data() {
+  return {
+    infoCategorias: [
+      2010, 2011, 2012, 2013, 2014
+    ]
+    
+  
+  }
+}
 }
 </script>
 

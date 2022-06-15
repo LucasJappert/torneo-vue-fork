@@ -1,10 +1,29 @@
 <template>
   <div id="app">
+    <div class="ContenedorImagenFondo">
+      <div class="ImagenFondo"></div>
+    </div>
+    <Header />
     <router-view/>
+    <br>
+    <br>
   </div>
 </template>
 
-<style>
+<script>
+import Header from "./components/Header.vue";
+export default {
+  name: 'App',
+  components: {
+    Header,
+  }
+}
+</script>
+
+<style lang="scss">
+@import "./assets/css/index.scss";
+@import "./assets/css/my-table.scss";
+
 *{
   box-sizing: content-box;
 }
@@ -21,6 +40,22 @@ body{
   overflow: hidden;
   min-height: 300px;
 
+}
+.ContenedorImagenFondo{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  display:block;
+  opacity: 0.05;
+}
+.ImagenFondo{
+  height:100%;
+  width:100%;
+  background-image: url("./assets/imagenes/bandera.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 nav {

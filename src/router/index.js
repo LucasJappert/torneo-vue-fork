@@ -30,6 +30,11 @@ const routes = [
     name: 'Login',
     component: () => import ("../views/Login")
   },
+  {
+    path: '/fase-grupos/:id',
+    name: 'FaseGrupos',
+    component: () => import ("../views/FaseGrupos")
+  },
 ]
 
 const router = new VueRouter({

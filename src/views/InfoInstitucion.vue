@@ -1,21 +1,22 @@
 <template>
-  <div>
-      <Header />
-       <div class="Instituciones">
-        Instituciones:
-      </div>
+ <div class="view-container">
+  
+  <div class="sub-container">
+    
+    <div class="Instituciones">
+      Instituciones:
+    </div>
       <TablasInstitucion />
-
+  </div>
   </div>
 </template>
 
 <script>
-import Header from "../components/Header.vue";
 import TablasInstitucion from "../components/TablasInstitucion.vue";
 export default {
   name: 'HomeView',
   components: {
-    Header,TablasInstitucion
+    TablasInstitucion
   }
 }
 </script>
@@ -24,11 +25,10 @@ export default {
 <style>
 
 .Instituciones{
-  font-size: 20px;
+  
   padding: 10px;
-  left:0px;
-  padding-right: 570px;
   font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.1em;
+  text-align: left;
   }
 </style>
