@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="actualizarGrupo(copiaGrupo)">Guardar</button>
     <div class="contenedor-nombre-grupo">
         <div class="sub-contenedor-nombre-grupo">
             <span class="titulo-grupo">Grupo {{grupo.id}}</span>
@@ -47,15 +46,6 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  data(){
-    return{
-      copiaGrupo: {}
-    }
-  },
-  mounted(){
-    this.copiaGrupo = {...this.grupo};
-    // console.log(this.copiaGrupo)
   },
   methods:{
     ...mapActions("faseGruposStore", ["actualizarGrupo"])

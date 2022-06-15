@@ -2,7 +2,8 @@
   <div>
     <div class="contenedor-nombre-grupo">
         <div class="sub-contenedor-nombre-grupo">
-            <span class="titulo-grupo">Grupo {{grupo.id}}</span>
+            <span class="titulo-grupo">Grupo {{copiaGrupo.id}}</span>
+            <button @click="actualizarGrupo(copiaGrupo)">Guardar</button>
         </div>
     </div>
     <div class="my-table-content">
@@ -19,24 +20,25 @@
           <div>Ptos</div>
           
         </div>
-        <div class="my-table-item grupoColumns" v-for="item in grupo.equipos" :key="item.id">
+        <div class="my-table-item grupoColumns" v-for="item in copiaGrupo.equipos" :key="item.id">
           <div><input type="text" v-model="item.nombre"></div>
-          <div><input type="text" v-model="item.pj"></div>
-          <div><input type="text" v-model="item.pg"></div>
-          <div><input type="text" v-model="item.pe"></div>
-          <div><input type="text" v-model="item.pp"></div>
-          <div><input type="text" v-model="item.gf"></div>
-          <div><input type="text" v-model="item.gc"></div>
-          <div><input type="text" v-model="item.dg"></div>
-          <div><input type="text" v-model="item.ptos"></div>
+          <div><input type="number" v-model="item.pj"></div>
+          <div><input type="number" v-model="item.pg"></div>
+          <div><input type="number" v-model="item.pe"></div>
+          <div><input type="number" v-model="item.pp"></div>
+          <div><input type="number" v-model="item.gf"></div>
+          <div><input type="number" v-model="item.gc"></div>
+          <div><input type="number" v-model="item.dg"></div>
+          <div><input type="number" v-model="item.ptos"></div>
         </div>
       </div>
     </div>
-    <button class="boton-ver-partidos">▼ Partidos Grupo {{grupo.id}}</button>
+    <button class="boton-ver-partidos">▼ Partidos Grupo {{copiaGrupo.id}}</button>
   </div>
 </template>
 
 <script>
+import {mapActions} from "vuex";
 export default {
   props: {
     grupo: {
@@ -50,8 +52,10 @@ export default {
     }
   },
   mounted(){
-    this.copiaGrupo = {...this.grupo};
-    // console.log(this.copiaGrupo)
+    this.copiaGrupo = JSON.parse(JSON.stringify(this.grupo));
+  },
+  methods:{
+    ...mapActions("faseGruposStore", ["actualizarGrupo"])
   }
 };
 </script>

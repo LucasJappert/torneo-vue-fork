@@ -13,7 +13,9 @@ export default {
         actualizarGrupo(state, grupoEditado){
             let indexGrupoActual = state.infoGrupos.arrayGrupos.findIndex(item => item.id == grupoEditado.id);
             if(indexGrupoActual > -1){
-                state.infoGrupos.arrayGrupos[indexGrupoActual = grupoEditado];
+                //let copiaGrupoEditado = {...grupoEditado};//Copiándolo de esta manera no funciona realmente como una copia.
+                let copiaGrupoEditado = JSON.parse(JSON.stringify(grupoEditado));
+                state.infoGrupos.arrayGrupos[indexGrupoActual].equipos = copiaGrupoEditado.equipos;
             }
         }
     },
