@@ -12,10 +12,33 @@
 
 <script>
 import Header from "./components/Header.vue";
+import {mapActions} from "vuex";
 export default {
   name: 'App',
   components: {
     Header,
+  },
+  created(){
+    this.intentoSetearModoEdicionDesdeLocalStorage();
+  },
+  mounted(){
+    
+    setTimeout(() => {
+        console.log(this.$route.query.modoEdicion);
+        if (this.$route.query.modoEdicion === null){
+          this.setearModoEdicion(true);
+          const primeraParteUrl = window.location.href.split("?")[0];
+          window.location.href = primeraParteUrl;
+          return;
+        }
+
+    }, 1000);
+    // console.log(window.location.href.searchParams.get("test"));
+    
+  },
+  methods:{
+    ...mapActions(["setearModoEdicion","intentoSetearModoEdicionDesdeLocalStorage"]),
+    
   }
 }
 </script>
@@ -23,6 +46,8 @@ export default {
 <style lang="scss">
 @import "./assets/css/index.scss";
 @import "./assets/css/my-table.scss";
+@import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
+
 
 *{
   box-sizing: content-box;

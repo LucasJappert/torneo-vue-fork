@@ -58,15 +58,17 @@
       
           
       </div>
-      <router-link :to="{ name:'Login'}">
-      <img class="icon-user" src="../assets/imagenes/usuario.png">  
-      </router-link>
-      
+      <div v-if="modoEdicion">
+        <button @click="setearModoEdicion(false)">
+          <i class="fa fa-power-off"></i>
+        </button>
+      </div>
       
   </div>
 </template>
 
 <script>
+import {mapActions, mapState} from "vuex"
 //TODO: hacer mas tarde
 export default {
 data() {
@@ -77,7 +79,13 @@ data() {
     
   
   }
-}
+},
+  computed:{
+    ...mapState(["modoEdicion"])
+  },
+ methods:{
+    ...mapActions(["setearModoEdicion"]),
+  }
 }
 </script>
 

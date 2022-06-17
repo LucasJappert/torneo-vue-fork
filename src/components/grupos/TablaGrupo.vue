@@ -48,12 +48,13 @@ export default {
     },
   },
   methods:{
-    ...mapActions("faseGruposStore", ["actualizarGrupo"])
+    ...mapActions("faseGruposStore", ["actualizarGrupo"]),
+   
   }
 };
 </script>
 
-<style>
+<style scope>
 
 .contenedor-nombre-grupo{
     width: 100%;
@@ -83,7 +84,7 @@ export default {
     color: black;
     font-weight: bold;
     min-width:800px;
-    width:75%;
+    width:78%;
     text-align: left;
     background: #ccc;
     border: none;

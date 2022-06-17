@@ -3,7 +3,7 @@
     <div class="contenedor-nombre-grupo">
         <div class="sub-contenedor-nombre-grupo">
             <span class="titulo-grupo">Grupo {{copiaGrupo.id}}</span>
-            <button @click="actualizarGrupo(copiaGrupo)">Guardar</button>
+            <button @click="actualizarGrupo(copiaGrupo)" class="guardar-datos-nuevos">Guardar Cambios</button>
         </div>
     </div>
     <div class="my-table-content">
@@ -84,18 +84,7 @@ export default {
     font-weight: bold;
 }
 
-.boton-ver-partidos{
-    padding: 5px 15px;
-    line-height: 30px;
-    color: black;
-    font-weight: bold;
-    min-width:800px;
-    width:75%;
-    text-align: left;
-    background: #ccc;
-    border: none;
-    cursor: pointer;
-}
+
 
 .my-table-header{
      background-color: rgb(39, 141, 196);
@@ -117,5 +106,12 @@ input{
 .my-table-item {
   background-color: rgb(255, 255, 255);
 
+}
+
+.guardar-datos-nuevos{
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 5px;
 }
 </style>

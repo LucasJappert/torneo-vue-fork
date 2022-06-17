@@ -2,7 +2,10 @@
   <div class="">
       <div v-for="(item, index) in infoGrupos.arrayGrupos" :key="index">
           <TablaGrupo :grupo="item" class="mT20" />
-          <TablaGrupoCopia :grupo="item"/>
+          <TablaGrupoCopia v-if="modoEdicion" :grupo="item"/>
+          <div v-else>
+
+          </div>
       </div>
 
   </div>
@@ -24,7 +27,8 @@ name: 'TablasGrupos',
     this.setearInfoGrupos(this.$route.params.id);
   },
   computed: { 
-    ...mapState("faseGruposStore", ["infoGrupos"])
+    ...mapState("faseGruposStore", ["infoGrupos"]),
+    ...mapState(["modoEdicion"])
   },
   methods: {
     ...mapActions("faseGruposStore", ["setearInfoGrupos"])
