@@ -57,9 +57,6 @@ export default {
 body{
   margin:0;
 }
-.ViewContainer{
-  padding:0 5px;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -69,7 +66,7 @@ body{
     width: 100%;
   overflow: hidden;
   min-height: 300px;
-
+  min-width: 1000px;
 }
 .ContenedorImagenFondo{
   position:fixed;
