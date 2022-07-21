@@ -35,6 +35,11 @@ const routes = [
     name: 'FaseGrupos',
     component: () => import ("../views/FaseGrupos")
   },
+  {
+    path: '/fase-final/:id',
+    name: 'FaseFinalView',
+    component: () => import ("../views/FaseFinalView")
+  },
 ]
 
 const router = new VueRouter({

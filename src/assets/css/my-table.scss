@@ -23,6 +23,11 @@
         &.grupoColumns{
             grid-template-columns: minmax(0, 8fr) repeat(8, minmax(0, 1fr));
         }
+        &.resultado-columns{
+            grid-template-columns: repeat(6, minmax(0, 0.1fr)) ;
+            
+          
+          }
     }
     &-header > div, &-item > div{
         padding: 10px 5px;
@@ -38,13 +43,13 @@
         color: white;
     }
     &-item{
-        cursor: pointer;
+        // cursor: pointer;
         &:nth-child(even){
             background: rgba(0,0,0,.05);
         }
-        &:hover{
-            background: rgba(0,0,0,.15);
-        }
+        // &:hover{
+        //     background: rgba(0,0,0,.15);
+        // }
     }
 }
 

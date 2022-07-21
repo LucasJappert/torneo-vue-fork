@@ -4,7 +4,9 @@
       <div class="ImagenFondo"></div>
     </div>
     <Header />
-    <router-view/>
+    <div class="ViewContainer">
+      <router-view :key="$route.fullPath"/>
+    </div>
     <br>
     <br>
   </div>
@@ -54,6 +56,9 @@ export default {
 }
 body{
   margin:0;
+}
+.ViewContainer{
+  padding:0 5px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

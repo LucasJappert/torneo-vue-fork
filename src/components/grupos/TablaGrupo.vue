@@ -34,13 +34,30 @@
         
       </div>
     </div>
-    <button class="boton-ver-partidos">▼ Partidos Grupo {{grupo.id}}</button>
+    <button @click="verResultados = !verResultados" class="boton-ver-partidos">▼ Partidos Grupo {{grupo.id}}</button>
+    <div v-if="verResultados" class="my-table-content">
+      <div class="my-table">
+        <div id=partidos  class="my-table-header resultado-columns bg-t c-222">
+          <div>Fecha</div>
+          <div>Hora</div>
+          <div>Cancha</div>
+          <div>Local</div>
+          <div></div>
+          <div>Visitante</div>
+        </div>
+      </div> 
+      </div>
      </div>
 </template>
 
 <script>
 import {mapActions} from "vuex";
 export default {
+  data(){
+    return{
+      verResultados: false
+    }
+  },
   props: {
     grupo: {
       type: Object,
@@ -51,10 +68,13 @@ export default {
     ...mapActions("faseGruposStore", ["actualizarGrupo"]),
    
   }
+
+   
 };
+
 </script>
 
-<style scope>
+<style scoped lang="scss">
 
 .contenedor-nombre-grupo{
     width: 100%;
@@ -89,7 +109,15 @@ export default {
     background: #ccc;
     border: none;
     cursor: pointer;
+    font-size: 0.8em;
+
+    &:hover{
+      background-color: #5c9fd6;
+    }
+   
 }
+
+
 
 
 </style>

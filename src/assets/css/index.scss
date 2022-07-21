@@ -62,5 +62,12 @@ body {
                 background: rgba(0, 0, 0, 0.1);
                 transition: all 0.1s;
             }
+    }
 }
+
+.bg-t{
+    background: transparent !important;
+}
+.c-222{
+    color: #222 !important;
 }

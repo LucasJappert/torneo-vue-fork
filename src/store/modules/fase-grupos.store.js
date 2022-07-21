@@ -17,13 +17,14 @@ export default {
                 let copiaGrupoEditado = JSON.parse(JSON.stringify(grupoEditado));
                 state.infoGrupos.arrayGrupos[indexGrupoActual].equipos = copiaGrupoEditado.equipos;
             }
-        }
+        },
+        mostrarPartidos(){}
     },
     actions: {
         async setearInfoGrupos({commit}, categoria) {
             const año = new Date().getFullYear();
             await axios
-            .get(`http://192.168.10.106:2000/api/fase-grupos/${año}/${categoria}`)
+            .get(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`)
             .then(response => {
                 if (response.status == 200){
                     commit("setearInfoGrupos", response.data);
@@ -39,13 +40,14 @@ export default {
             const año = new Date().getFullYear();
             const categoria = context.state.infoGrupos.categoria;
             await axios
-            .put(`http://192.168.10.106:2000/api/fase-grupos/${año}/${categoria}`, context.state.infoGrupos)
+            .put(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`, context.state.infoGrupos)
             .then(response => {
                 console.log(response.data)
             })
             .catch(error => {
                 console.log(`No se puedo actualizar el archivo en el servidor: ${error}`);
             });
-        }
+        },
+       
     }
 }

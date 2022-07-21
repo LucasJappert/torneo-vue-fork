@@ -42,11 +42,11 @@
       <div class="itemMenu">
         <span>Fase Final</span>
           <div class="divDesplegable">
-            <div>Categoría 2010</div>
-            <div>Categoría 2011</div>
-            <div>Categoría 2012</div>
-            <div>Categoría 2013</div>
-            <div>Categoría 2014</div>
+            <div v-for="(item, index) in infoCategorias" :key="index">
+              <router-link :to="{ name:'FaseFinalView', params: {id:item}}">
+                Categoría {{item}}
+              </router-link>
+            </div>
           </div>
       </div>
       <div class="itemMenu">
@@ -75,7 +75,7 @@ data() {
   return {
     infoCategorias: [
       2010, 2011, 2012, 2013, 2014
-    ]
+    ],
     
   
   }
@@ -98,6 +98,7 @@ data() {
   
 }
 .containerMenu{
+  z-index:10;
   position:relative;
   height:60px;
   width:100%;
