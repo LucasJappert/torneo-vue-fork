@@ -24,7 +24,6 @@ export default {
   }
 },
   mounted(){
-   console.log(this.$route.params.id);
     this.año= this.$route.params.id;
   }
 }

@@ -23,7 +23,6 @@ export default {
     actions: {
         async setearInfoGrupos({commit}, categoria) {
             const año = new Date().getFullYear();
-            console.log(año);
             await axios
             .get(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`)
             .then(response => {
