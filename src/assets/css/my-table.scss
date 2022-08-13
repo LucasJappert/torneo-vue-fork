@@ -25,9 +25,10 @@
         }
         &.resultado-columns{
             grid-template-columns: repeat(6, minmax(0, 0.1fr)) ;
-            
-          
-          }
+        }
+        &.columnas-seccion-equipos{
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
     }
     &-header > div, &-item > div{
         padding: 10px 5px;

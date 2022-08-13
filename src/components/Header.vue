@@ -23,7 +23,8 @@
                             Equipos
                         </router-link>
                     </div>
-                    <div>Reglamento</div>
+                    <div><a download="Reglamento2022.pdf" href="/src/pdfs/Reglamento2022.pdf">
+                    Reglamento <img class="Pdf" src="../assets/imagenes/pdf.png" ></a></div>
                 </div>
             </div>
             <!-- TODO:Llevar itemMenu a un componente -->
@@ -93,7 +94,7 @@ export default {
     },
     data() {
         return {
-            infoCategorias: [2010, 2011, 2012, 2013, 2014],
+            infoCategorias: [2012, 2013, 2014, 2015, 2016],
         };
     },
     computed: {
@@ -157,6 +158,10 @@ $base-color: #5c9fd6;
 }
 .MenuMobile {
     display: none;
+}
+
+.Pdf{
+  width: 20px
 }
 
 @media (max-width: 1000px) {

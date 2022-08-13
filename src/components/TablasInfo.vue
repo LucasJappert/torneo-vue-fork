@@ -11,7 +11,7 @@
         <div class="divTableBody">
         <div class="divTableRow">
             <div class="divTableCell">2010</div>
-            <div class="divTableCell"><input type="checkbox" disabled checked/></div>
+            <div class="divTableCell"><input type="checkbox" disabled/></div>
             
             
             
@@ -24,31 +24,31 @@
         </div>
         <div class="divTableRow">
             <div class="divTableCell">2012</div>
-            <div class="divTableCell"><input type="checkbox" disabled/></div>
+            <div class="divTableCell"><input type="checkbox" disabled checked/></div>
             
             
         </div>
         <div class="divTableRow">
             <div class="divTableCell">2013</div>
-            <div class="divTableCell"><input type="checkbox" disabled/></div>
+            <div class="divTableCell"><input type="checkbox" disabled checked/></div>
             
             
         </div>
         <div class="divTableRow">
             <div class="divTableCell">2014</div>
-            <div class="divTableCell"><input type="checkbox" disabled/></div>
+            <div class="divTableCell"><input type="checkbox" disabled checked/></div>
             
             
         </div>
         <div class="divTableRow">
             <div class="divTableCell">2015</div>
-            <div class="divTableCell"><input type="checkbox" disabled/></div>
+            <div class="divTableCell"><input type="checkbox" disabled checked/></div>
             
             
         </div>
         <div class="divTableRow">
             <div class="divTableCell">2016</div>
-            <div class="divTableCell"><input type="checkbox" disabled/></div>
+            <div class="divTableCell"><input type="checkbox" disabled /></div>
             
             
         </div>
