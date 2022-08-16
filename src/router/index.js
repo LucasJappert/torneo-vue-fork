@@ -31,9 +31,9 @@ const routes = [
     component: () => import ("../views/Login")
   },
   {
-    path: '/fase-grupos/:id',
-    name: 'FaseGrupos',
-    component: () => import ("../views/FaseGrupos")
+    path: '/zonas/:id',
+    name: 'Zonas',
+    component: () => import ("../views/Zonas")
   },
   {
     path: '/fase-final/:id',

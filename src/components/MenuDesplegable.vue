@@ -7,7 +7,7 @@
                     <div class="contedorNiveles" :class="{Nivel2Visible: ItemNivel1Seleccionado != 0 }">
                         <div class="contedorNivel1">
                            <div v-for="key in Object.keys(Items)" :key="key"
-                                @click="VerNivel2(key)"    
+                                @click="VerNivel2(key)"
                             >
                              {{Items[key].name}}
                            </div>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
         </div>
     </div>
@@ -70,7 +70,7 @@ export default {
 
                         },
                     ]
-                    
+
                 },
                 2:{
                     name:"FASE DE GRUPOS 🢂",
@@ -78,7 +78,7 @@ export default {
                         {
                             name:"Categoria 2012",
                             seccion: {
-                                name: 'FaseGrupos',
+                                name: 'Zonas',
                                 params: {
                                     id: 2012
                                 }
@@ -87,7 +87,7 @@ export default {
                         {
                             name:"Categoria 2013",
                             seccion: {
-                                name: 'FaseGrupos',
+                                name: 'Zonas',
                                 params: {
                                     id: 2013
                                 }
@@ -96,7 +96,7 @@ export default {
                         {
                             name:"Categoria 2014",
                             seccion: {
-                                name: 'FaseGrupos',
+                                name: 'Zonas',
                                 params: {
                                     id: 2014
                                 }
@@ -105,7 +105,7 @@ export default {
                         {
                             name:"Categoria 2015",
                             seccion: {
-                                name: 'FaseGrupos',
+                                name: 'Zonas',
                                 params: {
                                     id: 2015
                                 }
@@ -114,7 +114,7 @@ export default {
                         {
                             name:"Categoria 2016",
                             seccion: {
-                                name: 'FaseGrupos',
+                                name: 'Zonas',
                                 params: {
                                     id: 2016
                                 }
@@ -178,12 +178,12 @@ export default {
                     items:[{
                             name:"Canchas",
                             seccion: {
-                                
-                               
+
+
                             }
                         }]
                 }
-            }, 
+            },
             ItemNivel1Seleccionado: 0,
         };
     },
@@ -192,13 +192,13 @@ export default {
         VerNivel2(index){
             this.ItemNivel1Seleccionado=index;
 
-            
+
         },
         VerNivel1(){
             this.ItemNivel1Seleccionado=0;
         },
         CerrarMenu(){
-            this.MenuVisible = false; 
+            this.MenuVisible = false;
             this.ItemNivel1Seleccionado = 0;
         },
 
@@ -210,7 +210,7 @@ export default {
                 return this.Items[this.ItemNivel1Seleccionado].items;
 
             return [];
-            
+
         }
     }
 };
@@ -254,8 +254,8 @@ export default {
     overflow: hidden;
     height: 100%;
     box-sizing: border-box;
-    
-    
+
+
 }
 .contedorNiveles{
     width: 200%;
@@ -274,11 +274,11 @@ export default {
             text-align: left;
             box-sizing: border-box;
             height: auto;
-        } 
+        }
         & > div:hover{
             background-color: #5c9fd6;
             transition: all 0.2s linear;
-        } 
+        }
     }
     & > .contedorNivel1{
         & > div {
@@ -296,7 +296,7 @@ export default {
                 margin-top: 65px;
                 margin-bottom: -65px;
 
-               
+
             }
         }
     }
@@ -310,11 +310,11 @@ export default {
        margin-left: -100%;
     }
 }
-img { 
+img {
     float: left;
     margin-left: 35px;
     width: 65px;
-    
+
 }
  .Pdf{
     width: 25px;

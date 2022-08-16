@@ -1,0 +1,208 @@
+<template>
+    <div v-if="zonaEditada != null">
+        <div class="contenedor-nombre-grupo">
+            <div class="sub-contenedor-nombre-grupo">
+                <span class="titulo-grupo">Grupo {{index}}</span>
+            </div>
+        </div>
+        <div class="my-table-content">
+            <div class="my-table visible">
+                <div class="my-table-header grupoColumns">
+                    <div class="aliLeft">Equipo</div>
+                    <div>PJ</div>
+                    <div>PG</div>
+                    <div>PE</div>
+                    <div>PP</div>
+                    <div>GF</div>
+                    <div>GC</div>
+                    <div>DG</div>
+                    <div>Ptos</div>
+
+                </div>
+                <div class="my-table-item grupoColumns" v-for="(equipo, index) in getPosiciones" :key="index">
+                    <div class="aliLeft">{{equipo.Nombre}}</div>
+                    <div>{{equipo.PJ}}</div>
+                    <div>{{equipo.PG}}</div>
+                    <div>{{equipo.PE}}</div>
+                    <div>{{equipo.PP}}</div>
+                    <div>{{equipo.GF}}</div>
+                    <div>{{equipo.GC}}</div>
+                    <div>{{equipo.DG}}</div>
+                    <div class="B">{{equipo.Ptos}}</div>
+                </div>
+            </div>
+        </div>
+
+        <button @click="verResultados = !verResultados" class="boton-ver-partidos">
+            ▼ Ver partidos {{zona.nombre}}
+        </button>
+        <div class="my-table" :class="{'visible': verResultados}">
+            <div class="my-table-header resultado-columns bg-t c-222">
+                <div>Fecha</div>
+                <div>Hora</div>
+                <div>Cancha</div>
+                <div>Local</div>
+                <div>Resultado</div>
+                <div>Visitante</div>
+                <div>Estado</div>
+            </div>
+
+            <div class="my-table-item resultado-columns" v-for="partido in zonaEditada">
+                <div>{{partido.Fecha}}</div>
+                <div>{{partido.Hora}}</div>
+                <div>{{partido.Cancha}}</div>
+                <div>{{partido.NombreEquipo1}}</div>
+                <div v-if="modoEdicion">
+                    <input type="number" v-model="partido.GolesEquipo1" />
+                    -
+                    <input type="number" v-model="partido.GolesEquipo2" />
+                </div>
+                <div v-else class="B">{{partido.GolesEquipo1}} - {{partido.GolesEquipo2}}</div>
+                <div>{{partido.NombreEquipo2}}</div>
+                <div>
+                    <span class="Estado" :class="{'Finalizado': partido.Estado==1}" @click="CambiarEstado(partido)">
+                        {{getDescripcionEstado(partido.Estado)}}
+                    </span>
+                </div>
+            </div>
+            <div class="aliRight" v-if="modoEdicion">
+                <div class="button-8 btnCancelar" @click="Cancelar()">Cancelar</div>
+                <div class="button-7 btnGuardar" @click="Guardar()">Guardar</div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import InfoEquipo from "../../models/InfoEquipo";
+export default {
+    props:{
+        zona:{
+            type: Array,
+            required: true
+        },
+        index:{
+            type: Number,
+            required: true
+        }
+    },
+    data(){
+        return{
+            verResultados: false,
+            zonaEditada: null
+        }
+    },
+    mounted(){
+        this.zonaEditada = JSON.parse(JSON.stringify(this.zona));
+    },
+    methods:{
+        getDescripcionEstado(estado){
+            if(estado == 0) return "Pendiente";
+            return "Finalizado";
+        },
+        CambiarEstado(partido){
+            if(this.modoEdicion)
+                partido.Estado = !partido.Estado;
+        }
+    },
+    computed:{
+        getPosiciones(){
+            let diccionarioPosiciones = {};
+            this.zonaEditada.forEach(partido => {
+                if(!(partido.NombreEquipo1 in diccionarioPosiciones))
+                    diccionarioPosiciones[partido.NombreEquipo1] = new InfoEquipo(partido.NombreEquipo1);
+                if(!(partido.NombreEquipo2 in diccionarioPosiciones))
+                    diccionarioPosiciones[partido.NombreEquipo2] = new InfoEquipo(partido.NombreEquipo2);
+
+                if (partido.Estado == 1){
+                    if(partido.GolesEquipo1 > partido.GolesEquipo2){
+                        diccionarioPosiciones[partido.NombreEquipo1].setData(3, partido.GolesEquipo1, partido.GolesEquipo2);
+                        diccionarioPosiciones[partido.NombreEquipo2].setData(0, partido.GolesEquipo2, partido.GolesEquipo1);
+                    }
+                    if(partido.GolesEquipo1 == partido.GolesEquipo2){
+                        diccionarioPosiciones[partido.NombreEquipo1].setData(1, partido.GolesEquipo1, partido.GolesEquipo2);
+                        diccionarioPosiciones[partido.NombreEquipo2].setData(1, partido.GolesEquipo2, partido.GolesEquipo1);
+                    }
+                    if(partido.GolesEquipo1 < partido.GolesEquipo2){
+                        diccionarioPosiciones[partido.NombreEquipo1].setData(0, partido.GolesEquipo1, partido.GolesEquipo2);
+                        diccionarioPosiciones[partido.NombreEquipo2].setData(3, partido.GolesEquipo2, partido.GolesEquipo1);
+                    }
+                }
+            });
+
+            return Object.values(diccionarioPosiciones).sort((a, b) => (a.Ptos < b.Ptos && a.DG < b.DG) ? 1 : -1 );
+        },
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+.my-table{
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    &.visible{
+        max-height: 800px;
+    }
+}
+.boton-ver-partidos{
+    padding: 5px 15px;
+    line-height: 30px;
+    color: black;
+    font-weight: bold;
+    min-width:800px;
+    width:78%;
+    text-align: left;
+    background: #ccc;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8em;
+
+    &:hover{
+      background-color: #5c9fd6;
+    }
+}
+
+.contenedor-nombre-grupo{
+    width: 100%;
+    display: grid;
+    justify-items: center;
+
+}
+
+.sub-contenedor-nombre-grupo{
+    min-width:800px;
+    width:80%;
+    text-align: left;
+}
+
+.titulo-grupo{
+    background-color: rgb(71, 70, 70);
+    padding: 5px 15px;
+    border-radius: 5px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+
+input{
+  border-radius: 2px;
+  width: 30px;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 0 5px #ddd;
+  line-height: 20px;
+}
+.Estado{
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor:pointer;
+    &.Finalizado{
+        background-color: #28a745;
+        color:white;
+    }
+}
+</style>

@@ -17,7 +17,7 @@
           <div>GC</div>
           <div>DG</div>
           <div>Ptos</div>
-          
+
         </div>
         <div class="my-table-item grupoColumns" v-for="item in grupo.equipos" :key="item.id">
           <div>{{item.nombre}}</div>
@@ -30,8 +30,8 @@
           <div>{{item.dg}}</div>
           <div>{{item.ptos}}</div>
         </div>
-        
-        
+
+
       </div>
     </div>
     <button @click="verResultados = !verResultados" class="boton-ver-partidos">▼ Partidos Grupo {{grupo.id}}</button>
@@ -42,16 +42,28 @@
           <div>Hora</div>
           <div>Cancha</div>
           <div>Local</div>
-          <div></div>
+          <div>Resultado</div>
           <div>Visitante</div>
+          <div>Estado</div>
         </div>
-      </div> 
+
+        <!-- <div class="my-table-item grupoColumns" v-for="item in copiaGrupo.equipos" :key="item.id">
+          <div>Fecha</div>
+          <div>Hora</div>
+          <div>Cancha</div>
+          <div>Local</div>
+          <div>0 - 0</div>
+          <div>Visitante</div>
+          <div>Estado</div>
+        </div> -->
+
+      </div>
       </div>
      </div>
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import {mapState, mapActions} from "vuex";
 export default {
   data(){
     return{
@@ -64,12 +76,16 @@ export default {
       required: true,
     },
   },
+  mounted(){
+  },
   methods:{
-    ...mapActions("faseGruposStore", ["actualizarGrupo"]),
-   
+    ...mapActions("infoTorneo", ["setInfoTorneo"]),
+  },
+  computed:{
+    ...mapState("infoTorneo", ["infoTorneo"])
   }
 
-   
+
 };
 
 </script>
@@ -98,24 +114,6 @@ export default {
     font-weight: bold;
 }
 
-.boton-ver-partidos{
-    padding: 5px 15px;
-    line-height: 30px;
-    color: black;
-    font-weight: bold;
-    min-width:800px;
-    width:78%;
-    text-align: left;
-    background: #ccc;
-    border: none;
-    cursor: pointer;
-    font-size: 0.8em;
-
-    &:hover{
-      background-color: #5c9fd6;
-    }
-   
-}
 
 
 

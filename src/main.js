@@ -5,6 +5,9 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+import globalMixin from "./mixins/global.mixin";
+Vue.mixin(globalMixin);
+
 new Vue({
   router,
   store,

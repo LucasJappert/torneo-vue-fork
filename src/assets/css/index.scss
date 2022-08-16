@@ -24,7 +24,7 @@ body {
 }
 .divTableRow {
 	display: table-row;
-    
+
 
 }
 
@@ -44,7 +44,7 @@ body {
 	font-weight: bold;
     color: white;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-        
+
 }
 .divTableFoot {
 	background-color: #EEE;
@@ -54,9 +54,9 @@ body {
 .divTableBody {
 	display: table-row-group;
     & .divTableRow {
-	
+
         border-bottom: 1px solid black;
-        
+
 
         &:hover{
                 background: rgba(0, 0, 0, 0.1);
@@ -70,4 +70,27 @@ body {
 }
 .c-222{
     color: #222 !important;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.aliRight{
+    display:flex;
+    align-items: center;
+    justify-content: right;
+    width:100%;
+}
+.aliLeft{
+    text-align: left;
+}
+.B{
+    font-weight: bold;
 }

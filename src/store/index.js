@@ -4,7 +4,10 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import faseGruposStore from './modules/fase-grupos.store';
+import zonas from './modules/zonas.store';
+import equipos from './modules/equipos.store';
+import infoTorneo from './modules/info-torneo.store';
+
 export default new Vuex.Store({
   strict: true,
   state: {
@@ -34,12 +37,14 @@ export default new Vuex.Store({
       setearModoEdicion({commit}, pModoEdicion){
           commit("setearModoEdicion", pModoEdicion);
        },
-       
+
       intentoSetearModoEdicionDesdeLocalStorage({commit}){
         commit("intentoSetearModoEdicionDesdeLocalStorage");
       }
   },
   modules: {
-    faseGruposStore
+    zonas,
+    equipos,
+    infoTorneo
   }
 })

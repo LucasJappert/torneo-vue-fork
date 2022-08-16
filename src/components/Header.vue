@@ -33,7 +33,7 @@
                 <div class="divDesplegable">
                     <div v-for="(item, index) in infoCategorias" :key="index">
                         <router-link
-                            :to="{ name: 'FaseGrupos', params: { id: item } }"
+                            :to="{ name: 'Zonas', params: { id: item } }"
                         >
                             Categoría {{ item }}
                         </router-link>
@@ -129,23 +129,19 @@ $base-color: #5c9fd6;
     & .itemMenu {
         position: relative;
         padding: 5px 60px;
+        height: 100%;
+        line-height: 60px;
         & a {
             color: white;
             text-decoration: none;
         }
-        &:hover > .divDesplegable {
-            display: block;
-            max-height: 200px;
-            position: absolute;
-            left: 0px;
-            top: 28px;
-            transition: all 0.5s linear;
-        }
         & .divDesplegable {
             width: 100%;
-            display: none;
             max-height: 0px;
-
+            transition: opacity 0.5s linear;
+            overflow: hidden;
+            opacity:0;
+            line-height: 35px;
             & div {
                 padding: 5px 10px;
                 background-color: #5a6f80;
@@ -153,6 +149,14 @@ $base-color: #5c9fd6;
                     background-color: #5c9fd6;
                 }
             }
+        }
+        &:hover > .divDesplegable {
+            display: block;
+            max-height: 400px;
+            position: absolute;
+            left: 0px;
+            top: 64px;
+            opacity:1;
         }
     }
 }

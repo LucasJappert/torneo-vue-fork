@@ -24,7 +24,7 @@ export default {
     this.intentoSetearModoEdicionDesdeLocalStorage();
   },
   mounted(){
-    
+
     setTimeout(() => {
         console.log(this.$route.query.modoEdicion);
         if (this.$route.query.modoEdicion === null){
@@ -36,17 +36,18 @@ export default {
 
     }, 1000);
     // console.log(window.location.href.searchParams.get("test"));
-    
+
   },
   methods:{
     ...mapActions(["setearModoEdicion","intentoSetearModoEdicionDesdeLocalStorage"]),
-    
+
   }
 }
 </script>
 
 <style lang="scss">
 @import "./assets/css/index.scss";
+@import "./assets/css/botones.scss";
 @import "./assets/css/my-table.scss";
 @import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
 
