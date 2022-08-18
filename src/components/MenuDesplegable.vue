@@ -2,10 +2,11 @@
     <div>
         <div class="IconoHamburguer" @click="MenuVisible = !MenuVisible">☰</div>
         <div class="MenuDesplegable" :class="{ Visible: MenuVisible }">
-            <div class="IconoCruz" @click="CerrarMenu()">✖</div>
+            <div class="IconoCruz" @click="CerrarMenu()">✖ </div>
+            <!-- <img class="icon" src="../assets/imagenes/humbertito.png" /> -->
                 <div class="contenedorMenu">
                     <div class="contedorNiveles" :class="{Nivel2Visible: ItemNivel1Seleccionado != 0 }">
-                        <div class="contedorNivel1">
+                        <div class="contedorNivel1" >
                            <div v-for="key in Object.keys(Items)" :key="key"
                                 @click="VerNivel2(key)"
                             >
@@ -13,7 +14,7 @@
                            </div>
                         </div>
                         <div class="contedorNivel2" >
-                            <img src="../assets/imagenes/back.png" @click="VerNivel1()">
+                            <img clas="back" src="../assets/imagenes/back.png" @click="VerNivel1()">
                             <div v-for="(item, index) in ObtenerItemsNivel2" :key="index">
                                 <a v-if="item.urlpdf != null" :download="item.downloadFileName" :href="item.urlpdf">
                                     <img class="Pdf" src="../assets/imagenes/pdf.png" >
@@ -111,15 +112,15 @@ export default {
                                 }
                             }
                         },
-                        {
-                            name:"Categoria 2016",
-                            seccion: {
-                                name: 'Zonas',
-                                params: {
-                                    id: 2016
-                                }
-                            }
-                        }
+                        // {
+                        //     name:"Categoria 2016",
+                        //     seccion: {
+                        //         name: 'Zonas',
+                        //         params: {
+                        //             id: 2016
+                        //         }
+                        //     }
+                        // }
                     ]
                 },
                 3:{
@@ -161,19 +162,29 @@ export default {
                                 }
                             }
                         },
-                        {
-                            name:"Categoria 2016",
-                            seccion: {
-                                name: 'FaseFinalView',
-                                params: {
-                                    id: 2016
-                                }
-                            }
-                        }
+                        // {
+                        //     name:"Categoria 2016",
+                        //     seccion: {
+                        //         name: 'FaseFinalView',
+                        //         params: {
+                        //             id: 2016
+                        //         }
+                        //     }
+                        // }
                     ]
 
                 },
-                4:{
+                 4:{
+                    name:"NO COMPETITIVO🢂",
+                    items:[{
+                            name:"Categoría 2016",
+                            seccion: {
+
+
+                            }
+                        }]
+                },
+                5:{
                     name:"EL CLUB 🢂",
                     items:[{
                             name:"Canchas",
@@ -228,6 +239,7 @@ export default {
     background-color: #444;
     transition: all 0.2s;
     box-shadow: 0 0 30px black;
+    z-index: 10;
     &.Visible {
         left: 0;
     }
@@ -322,5 +334,11 @@ img {
     margin-right: 238px;
     margin-bottom: -30px;
     margin-top: 5px;
-                }
+}
+// .icon{
+//     margin-left: 150px;
+//     width: 100px;
+//     margin-bottom: -130px;
+// }
+
 </style>

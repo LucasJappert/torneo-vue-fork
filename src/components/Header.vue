@@ -56,6 +56,12 @@
                 </div>
             </div>
             <div class="itemMenu">
+                <span>No Competitivo</span>
+                <div class="divDesplegable">
+                    <div>Categoría 2016</div>
+                </div>
+            </div>
+            <div class="itemMenu">
                 <span>El Club</span>
                 <div class="divDesplegable">
                     <div>Canchas</div>
@@ -94,7 +100,7 @@ export default {
     },
     data() {
         return {
-            infoCategorias: [2012, 2013, 2014, 2015, 2016],
+            infoCategorias: [2012, 2013, 2014, 2015],
         };
     },
     computed: {
