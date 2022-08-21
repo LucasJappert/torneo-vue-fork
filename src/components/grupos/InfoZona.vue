@@ -52,7 +52,7 @@
                 <div>{{partido.Hora}}</div>
                 <div>{{partido.Cancha}}</div>
                 <div>{{partido.NombreEquipo1}}</div>
-                <div v-if="modoEdicion">
+                <div v-if="modoEdicion && partido.Estado == 0">
                     <input type="number" v-model="partido.GolesEquipo1" />
                     -
                     <input type="number" v-model="partido.GolesEquipo2" />
@@ -75,6 +75,7 @@
 
 <script>
 import InfoEquipo from "../../models/InfoEquipo";
+import ZonasServices from "../../services/zonas.services";
 export default {
     props:{
         zona:{
@@ -103,6 +104,21 @@ export default {
         CambiarEstado(partido){
             if(this.modoEdicion)
                 partido.Estado = !partido.Estado;
+        },
+        async Guardar(){
+            console.log(this.hayCambios);
+            if(!this.hayCambios)
+                return;
+
+            const result = await ZonasServices.Update(this.index, this.zonaEditada);
+            if(result)
+                this.$emit("refresh");
+            else
+                alert("No se pudo actualizar la info.");
+        },
+        Cancelar(){
+            this.zonaEditada = JSON.parse(JSON.stringify(this.zona));
+            this.verResultados = false;
         }
     },
     computed:{
@@ -132,6 +148,9 @@ export default {
 
             return Object.values(diccionarioPosiciones).sort((a, b) => (a.Ptos < b.Ptos && a.DG < b.DG) ? 1 : -1 );
         },
+        hayCambios(){
+            return JSON.stringify(this.zona) !=  JSON.stringify(this.zonaEditada);
+        }
     }
 }
 </script>

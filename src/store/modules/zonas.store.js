@@ -1,52 +1,38 @@
 import axios from "axios";
+import ZonasServices from "../../services/zonas.services";
+
+
+const getDefaultState = () => {
+    return {
+        infoZonas: null
+    }
+}
+
 export default {
     namespaced: true,
-    state: {
-        infoZonas: null,
-    },
+    state: getDefaultState(),
     getters: {
     },
     mutations: {
-        setearZonas(state, infoZonas) {
-            state.infoZonas = infoZonas;
+        resetState(state){
+            Object.assign(state, getDefaultState());
         },
-        actualizarGrupo(state, grupoEditado){
-            let indexGrupoActual = state.infoZonas.arrayGrupos.findIndex(item => item.id == grupoEditado.id);
-            if(indexGrupoActual > -1){
-                //let copiaGrupoEditado = {...grupoEditado};//Copiándolo de esta manera no funciona realmente como una copia.
-                let copiaGrupoEditado = JSON.parse(JSON.stringify(grupoEditado));
-                state.infoZonas.arrayGrupos[indexGrupoActual].equipos = copiaGrupoEditado.equipos;
-            }
+        setearZonas(state, infoZonas) {
+            console.log("Zonas actualizadas!");
+            state.infoZonas = infoZonas;
         },
     },
     actions: {
-        async setearZonas({commit}, categoria) {
-            const año = new Date().getFullYear();
-            await axios
-            .get(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`)
-            .then(response => {
-                if (response.status == 200){
-                    commit("setearZonas", response.data);
-                }
-                else{
-                    alert("Error inesperado!");
-                }
-            });
+        resetState({commit}){
+            commit("resetState");
         },
-        async actualizarGrupo(context, grupoEditado){
-            context.commit("actualizarGrupo", grupoEditado);
+        async setearZonas({commit}) {
+            const result = await ZonasServices.GetAll();
+            if(result)
+                commit("setearZonas", result);
+            else
+                console.log("Error inesperado!");
 
-            const año = new Date().getFullYear();
-            const categoria = context.state.infoGrupos.categoria;
-            await axios
-            .put(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`, context.state.infoGrupos)
-            .then(response => {
-                console.log(response.data)
-            })
-            .catch(error => {
-                console.log(`No se puedo actualizar el archivo en el servidor: ${error}`);
-            });
-        },
-
+        }
     }
 }

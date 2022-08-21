@@ -16,32 +16,37 @@
 import Header from "./components/Header.vue";
 import {mapActions} from "vuex";
 export default {
-  name: 'App',
-  components: {
-    Header,
-  },
-  created(){
-    this.intentoSetearModoEdicionDesdeLocalStorage();
-  },
-  mounted(){
+    name: 'App',
+    components: {
+        Header,
+    },
+    created(){
+        this.intentoSetearModoEdicionDesdeLocalStorage();
+    },
+    mounted(){
 
-    setTimeout(() => {
-        console.log(this.$route.query.modoEdicion);
-        if (this.$route.query.modoEdicion === null){
-          this.setearModoEdicion(true);
-          const primeraParteUrl = window.location.href.split("?")[0];
-          window.location.href = primeraParteUrl;
-          return;
-        }
+        setTimeout(() => {
+            console.log(this.$route.query.modoEdicion);
+            if (this.$route.query.modoEdicion === null){
+            this.setearModoEdicion(true);
+            const primeraParteUrl = window.location.href.split("?")[0];
+            window.location.href = primeraParteUrl;
+            return;
+            }
 
-    }, 1000);
-    // console.log(window.location.href.searchParams.get("test"));
+        }, 1000);
+        // console.log(window.location.href.searchParams.get("test"));
 
-  },
-  methods:{
-    ...mapActions(["setearModoEdicion","intentoSetearModoEdicionDesdeLocalStorage"]),
-
-  }
+    },
+    methods:{
+        ...mapActions(["setearModoEdicion","intentoSetearModoEdicionDesdeLocalStorage"]),
+        ...mapActions("zonas", ["resetState"]),
+    },
+    watch: {
+        $route() {
+            this.resetState();
+        },
+    },
 }
 </script>
 

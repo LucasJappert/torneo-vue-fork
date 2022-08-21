@@ -1,13 +1,13 @@
 <template>
     <div>
         <div class="cont-categoria">
-            <span class="categoria">Categoría {{ getCategoria }}</span>
+            <span class="categoria">Categoría {{ $route.params.id }}</span>
         </div>
 
         <div class="" v-if="infoZonas != null">
 
             <div class="my-table-content" v-for="(zona, index) in infoZonas" :key="index">
-                <InfoZona :zona="zona" :index="Number(index)" ></InfoZona>
+                <InfoZona :zona="zona" :index="Number(index)" @refresh="setearZonas()" ></InfoZona>
             </div>
             <!-- <div v-for="(item, index) in infoGrupos.arrayGrupos" :key="index">
                 <TablaGrupo :grupo="item" class="mT20" />
@@ -26,17 +26,14 @@ name: 'TablasGrupos',
     components: {
         InfoZona
     },
-  mounted(){
-    this.setearZonas(this.getCategoria);
+  async mounted(){
+    await this.setearZonas();
     console.log(this.infoZonas);
 
   },
   computed: {
     ...mapState("zonas", ["infoZonas"]),
     ...mapState(["modoEdicion"]),
-    getCategoria(){
-        return this.$route.params.id;
-    }
   },
   methods: {
     ...mapActions("zonas", ["setearZonas"])
