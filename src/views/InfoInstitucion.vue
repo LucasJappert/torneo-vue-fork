@@ -1,13 +1,9 @@
 <template>
- <div class="view-container">
-  
   <div class="sub-container">
-    
     <div class="Instituciones">
       Instituciones:
     </div>
-      <TablasInstitucion />
-  </div>
+    <TablasInstitucion />
   </div>
 </template>
 
@@ -25,7 +21,7 @@ export default {
 <style>
 
 .Instituciones{
-  
+
   padding: 10px;
   font-weight: bold;
   font-size: 1.1em;

@@ -4,10 +4,11 @@ body {
   }
 .view-container{
     width: 100%;
-    display: grid;
+    display: block;
     align-items: center;
     justify-items: center;
-
+    padding: 0 10px;
+    overflow: hidden;
 }
 
 .sub-container{
@@ -24,8 +25,6 @@ body {
 }
 .divTableRow {
 	display: table-row;
-
-
 }
 
 .divTableRow:nth-child(2n+2){
@@ -91,6 +90,63 @@ input[type=number] {
 .aliLeft{
     text-align: left;
 }
+.text-center{
+    text-align: center !important;
+}
 .B{
     font-weight: bold;
+}
+
+.input-goles{
+  border-radius: 2px;
+  width: 20px;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 0 5px #ddd;
+  line-height: 20px;
+}
+.pR{ position:relative;}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #007c8a;
+    /* color of the scroll thumb */
+    border-radius: 5px;
+    /* roundness of the scroll thumb */
+    border: 1px solid #fff;
+    /* creates padding around scroll thumb */
+}
+
+.Estado{
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor:pointer;
+    &.Finalizado{
+        background-color: #28a745;
+        color:white;
+    }
+}
+.mT10{
+    margin-top: 10px;
+}
+.mT20{
+    margin-top: 20px;
+}
+.pT10{
+    padding-top: 10px;
+}
+.pT20{
+    padding-top: 20px;
 }

@@ -7,6 +7,7 @@ Vue.use(Vuex);
 import zonas from './modules/zonas.store';
 import equipos from './modules/equipos.store';
 import infoTorneo from './modules/info-torneo.store';
+import faseFinal from './modules/fase-final.store';
 
 export default new Vuex.Store({
   strict: true,
@@ -45,6 +46,7 @@ export default new Vuex.Store({
   modules: {
     zonas,
     equipos,
-    infoTorneo
+    infoTorneo,
+    faseFinal
   }
 })

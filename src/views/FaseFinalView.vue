@@ -13,21 +13,27 @@
         ></i>
       </button>
     </div>
+    <div class="overflow-scroll">
+        <FaseFinal8Equipos :categoria="Number($route.params.id)" />
+    </div>
   </div>
 </template>
 
 <script>
+import FaseFinal8Equipos from "../components/fase-final/FaseFinal8Equipos.vue";
+// import FaseFinal4Equipos from "../components/fase-final/FaseFinal4Equipos.vue";
 export default {
-  data() {
-    return {
-      año: "",
-      copaActiva: 1
-    };
-  },
-  mounted() {
-    console.log(this.$route.params.id);
-    this.año = this.$route.params.id;
-  },
+    components:{ FaseFinal8Equipos },
+    data() {
+        return {
+        año: "",
+        copaActiva: 1
+        };
+    },
+    mounted() {
+        console.log(this.$route.params.id);
+        this.año = this.$route.params.id;
+    },
 };
 </script>
 
@@ -51,7 +57,7 @@ button {
   background-color: transparent;
   color: #495057;
   /* margin-bottom: -50px; */
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: 1px solid transparent;
   line-height:25px;
 
@@ -73,6 +79,11 @@ button {
 .cont-categoria{
   text-align: left ;
   padding: 10px;
-  
+
+}
+.overflow-scroll{
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
 }
 </style>

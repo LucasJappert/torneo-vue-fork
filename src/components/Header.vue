@@ -75,15 +75,15 @@
         </div>
 
         <div class="MenuMobile">
+            <div class="NombreClub">
+                <div>ARGENTINO</div>
+                <div>HUMBERTO 1° <span>{{ new Date().getFullYear() }}</span></div>
+            </div>
             <img
                 src="../assets/imagenes/logoClub.png"
                 class="logoClub"
                 alt=""
             />
-            <div class="NombreClub">
-                <div>ARGENTINO</div>
-                <div>HUMBERTO 1° <span>{{ new Date().getFullYear() }}</span></div>
-            </div>
 
             <MenuDesplegable />
         </div>
@@ -115,26 +115,29 @@ export default {
 <style scoped lang="scss">
 $base-color: #5c9fd6;
 .icon {
-    height: 80px;
+    height: 60px;
 }
 .MenuDesktop {
     z-index: 10;
     position: relative;
     height: 60px;
     width: 100%;
-    display: flex;
+    display: inline-grid;
     align-items: center;
     justify-content: center;
+    grid-template-columns: minmax(60px, 60px) repeat(5, minmax(0, 1fr)) minmax(0, 0.3fr);
     background-color: $base-color;
     color: white;
     cursor: pointer;
     font-family: fantasy;
     text-shadow: 1px 1px 1px #0e0e0e;
     font-size: 20px;
-
+    & a {
+        height:60px;
+    }
     & .itemMenu {
         position: relative;
-        padding: 5px 60px;
+        // padding: 5px 60px;
         height: 100%;
         line-height: 60px;
         & a {
@@ -144,7 +147,7 @@ $base-color: #5c9fd6;
         & .divDesplegable {
             width: 100%;
             max-height: 0px;
-            transition: opacity 0.5s linear;
+            transition: opacity 0.2s linear;
             overflow: hidden;
             opacity:0;
             line-height: 35px;
@@ -161,7 +164,7 @@ $base-color: #5c9fd6;
             max-height: 400px;
             position: absolute;
             left: 0px;
-            top: 64px;
+            top: 60px;
             opacity:1;
         }
     }
@@ -179,30 +182,32 @@ $base-color: #5c9fd6;
         display: none;
     }
     .MenuMobile {
-        height: 165px;
+        height: 125px;
         background-color: $base-color;
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: right;
+        padding-right: 10px;
         & .logoClub {
-            height: 90%;
+            height: 80%;
         }
         & .NombreClub {
             font-weight: bold;
             color: white;
-            margin-left: 20px;
+            margin-left: 5px;
             text-align: left;
-            font-size: 24px;
+            font-size: 1.2rem;
+            // font-size: 24px;
             & div:nth-child(1) {
-                font-size: 2em;
+                font-size: 2rem;
             }
             & div:nth-child(2) {
                 font-size: 1em;
                 align-items: center;
                 display: flex;
                 & span {
-                    font-size: 2em;
+                    // font-size: 2rem;
                     margin-left: 10px;
                 }
             }

@@ -1,12 +1,12 @@
 <template>
     <div>
         <div class="cont-categoria">
-            <span class="categoria">Categoría {{ $route.params.id }}</span>
+            <span class="title">Categoría {{ $route.params.id }}</span>
         </div>
 
         <div class="" v-if="infoZonas != null">
 
-            <div class="my-table-content" v-for="(zona, index) in infoZonas" :key="index">
+            <div class="" v-for="(zona, index) in infoZonas" :key="index">
                 <InfoZona :zona="zona" :index="Number(index)" @refresh="setearZonas()" ></InfoZona>
             </div>
             <!-- <div v-for="(item, index) in infoGrupos.arrayGrupos" :key="index">
@@ -43,18 +43,21 @@ name: 'TablasGrupos',
 </script>
 
 <style scoped lang="scss">
-
-.categoria {
-    font-size: 1.5em;
-    padding: 150px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-weight: bold;
+.my-table-content{
+    margin-top: 20px;
 }
 
 .cont-categoria {
-    text-align: left;
+    text-align: center;
     padding: 10px;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        width:80%;
+    }
 }
 .mT20{
   margin-top: 20px;

@@ -1,8 +1,8 @@
 <template>
-    <div v-if="zonaEditada != null">
+    <div v-if="zonaEditada != null" class="container-zonas">
         <div class="contenedor-nombre-grupo">
             <div class="sub-contenedor-nombre-grupo">
-                <span class="titulo-grupo">Grupo {{index}}</span>
+                <span class="titulo-grupo">Grupo {{letras[index-1]}}</span>
             </div>
         </div>
         <div class="my-table-content">
@@ -30,46 +30,48 @@
                     <div>{{equipo.DG}}</div>
                     <div class="B">{{equipo.Ptos}}</div>
                 </div>
+
+                <div @click="verResultados = !verResultados" class="boton-ver-partidos">
+                    ▼ Ver partidos {{zona.nombre}}
+                </div>
+            </div>
+
+            <div class="my-table" :class="{'visible': verResultados}">
+                <div class="my-table-header resultado-columns bg-t c-222">
+                    <div>Fecha</div>
+                    <div>Hora</div>
+                    <div>Cancha</div>
+                    <div>Local</div>
+                    <div>Resultado</div>
+                    <div>Visitante</div>
+                    <div>Estado</div>
+                </div>
+
+                <div class="my-table-item resultado-columns" v-for="partido in zonaEditada">
+                    <div>{{partido.Fecha}}</div>
+                    <div>{{partido.Hora}}</div>
+                    <div>{{partido.Cancha}}</div>
+                    <div>{{partido.NombreEquipo1}}</div>
+                    <div v-if="modoEdicion && partido.Estado == 0">
+                        <input class="input-goles" type="number" v-model="partido.GolesEquipo1" />
+                        -
+                        <input class="input-goles" type="number" v-model="partido.GolesEquipo2" />
+                    </div>
+                    <div v-else class="B">{{partido.GolesEquipo1}} - {{partido.GolesEquipo2}}</div>
+                    <div>{{partido.NombreEquipo2}}</div>
+                    <div>
+                        <span class="Estado" :class="{'Finalizado': partido.Estado==1}" @click="CambiarEstado(partido)">
+                            {{getDescripcionEstado(partido.Estado)}}
+                        </span>
+                    </div>
+                </div>
+                <div class="aliRight" v-if="modoEdicion">
+                    <div class="button-8 btnCancelar" @click="Cancelar()">Cancelar</div>
+                    <div class="button-7 btnGuardar" @click="Guardar()">Guardar</div>
+                </div>
             </div>
         </div>
 
-        <button @click="verResultados = !verResultados" class="boton-ver-partidos">
-            ▼ Ver partidos {{zona.nombre}}
-        </button>
-        <div class="my-table" :class="{'visible': verResultados}">
-            <div class="my-table-header resultado-columns bg-t c-222">
-                <div>Fecha</div>
-                <div>Hora</div>
-                <div>Cancha</div>
-                <div>Local</div>
-                <div>Resultado</div>
-                <div>Visitante</div>
-                <div>Estado</div>
-            </div>
-
-            <div class="my-table-item resultado-columns" v-for="partido in zonaEditada">
-                <div>{{partido.Fecha}}</div>
-                <div>{{partido.Hora}}</div>
-                <div>{{partido.Cancha}}</div>
-                <div>{{partido.NombreEquipo1}}</div>
-                <div v-if="modoEdicion && partido.Estado == 0">
-                    <input type="number" v-model="partido.GolesEquipo1" />
-                    -
-                    <input type="number" v-model="partido.GolesEquipo2" />
-                </div>
-                <div v-else class="B">{{partido.GolesEquipo1}} - {{partido.GolesEquipo2}}</div>
-                <div>{{partido.NombreEquipo2}}</div>
-                <div>
-                    <span class="Estado" :class="{'Finalizado': partido.Estado==1}" @click="CambiarEstado(partido)">
-                        {{getDescripcionEstado(partido.Estado)}}
-                    </span>
-                </div>
-            </div>
-            <div class="aliRight" v-if="modoEdicion">
-                <div class="button-8 btnCancelar" @click="Cancelar()">Cancelar</div>
-                <div class="button-7 btnGuardar" @click="Guardar()">Guardar</div>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -90,7 +92,8 @@ export default {
     data(){
         return{
             verResultados: false,
-            zonaEditada: null
+            zonaEditada: null,
+            letras: ["A", "B", "C", "D"]
         }
     },
     mounted(){
@@ -146,7 +149,12 @@ export default {
                 }
             });
 
-            return Object.values(diccionarioPosiciones).sort((a, b) => (a.Ptos < b.Ptos && a.DG < b.DG) ? 1 : -1 );
+            return Object.values(diccionarioPosiciones).sort((a, b) => {
+                if(a.Ptos == b.Ptos){
+                    return a.DG < b.DG ? 1 : -1;
+                }
+                    return a.Ptos < b.Ptos ? 1 : -1;
+            });
         },
         hayCambios(){
             return JSON.stringify(this.zona) !=  JSON.stringify(this.zonaEditada);
@@ -158,9 +166,10 @@ export default {
 <style lang="scss" scoped>
 .my-table{
     max-height: 0px;
-    overflow: hidden;
+    display: none;
     transition: all 0.3s ease-in-out;
     &.visible{
+        display:inline-grid;
         max-height: 800px;
     }
 }
@@ -169,10 +178,9 @@ export default {
     line-height: 30px;
     color: black;
     font-weight: bold;
-    min-width:800px;
-    width:78%;
+    width:100%;
     text-align: left;
-    background: #ccc;
+      background-color: #8aadc9;
     border: none;
     cursor: pointer;
     font-size: 0.8em;
@@ -204,24 +212,15 @@ export default {
     font-weight: bold;
 }
 
-
-input{
-  border-radius: 2px;
-  width: 30px;
-  box-sizing: border-box;
-  border: none;
-  text-align: center;
-  outline: none;
-  box-shadow: 0 0 5px #ddd;
-  line-height: 20px;
+.resultado-columns{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) repeat(2, minmax(0, 2fr)) minmax(0, 2fr) repeat(2, minmax(0, 2fr));
 }
-.Estado{
-    padding: 2px 5px;
-    border-radius: 5px;
-    cursor:pointer;
-    &.Finalizado{
-        background-color: #28a745;
-        color:white;
-    }
+.container-zonas{
+    width:100%;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+}
+.grupoColumns{
+    grid-template-columns: minmax(0, 2fr) repeat(8, minmax(0, 1fr));
 }
 </style>

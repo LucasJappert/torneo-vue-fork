@@ -1,18 +1,10 @@
 <template>
-  <div class="view-container">
-  
     <div class="sub-container">
          <div class="Categoria">
           Categorías:
         </div>
         <TablasInfo />
-     
-         </div>
-      
-
- 
-  </div>
-  
+    </div>
 </template>
 
 <script>
@@ -35,7 +27,7 @@ export default {
   padding: 10px;
   font-weight: bold;
   text-align: left;
-  
+
   }
 
 

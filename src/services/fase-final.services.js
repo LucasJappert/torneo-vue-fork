@@ -2,13 +2,13 @@ const axios = require("axios");
 const router = require('../router/index');
 
 
-const Zonas = () => {};
+const FaseFinal = () => {};
 
-Zonas.GetAll = async() => {
+FaseFinal.GetAll = async() => {
     const año = new Date().getFullYear();
     const categoria = router.default.currentRoute.params.id;
     return await axios
-        .get(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`)
+        .get(`${process.env.VUE_APP_URL_API}/fase-final/${año}/${categoria}`)
         .then(response => {
             if (response.status == 200)
                 return response.data;
@@ -18,17 +18,17 @@ Zonas.GetAll = async() => {
         .catch(null);
 }
 
-Zonas.Update = async (index, zona) => {
+FaseFinal.Update = async (data) => {
     const año = new Date().getFullYear();
     const categoria = router.default.currentRoute.params.id;
-    console.log({ index, zona });
     return await axios
-        .patch(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`, { index, zona })
-        .then(true)
+        .patch(`${process.env.VUE_APP_URL_API}/fase-final/${año}/${categoria}`, { data })
+        .then(response => response.data)
         .catch(error => {
             console.log(error);
-            return false;
+            return null;
         });
 }
 
-module.exports = Zonas;
+
+module.exports = FaseFinal;

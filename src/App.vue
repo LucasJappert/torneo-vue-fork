@@ -4,7 +4,7 @@
       <div class="ImagenFondo"></div>
     </div>
     <Header />
-    <div class="ViewContainer">
+    <div class="view-container">
       <router-view :key="$route.fullPath"/>
     </div>
     <br>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// import confetti from "./assets/js/confetti.js";
 import Header from "./components/Header.vue";
 import {mapActions} from "vuex";
 export default {
@@ -58,21 +59,21 @@ export default {
 
 
 *{
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 body{
   margin:0;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
     width: 100%;
-  overflow: hidden;
-  min-height: 300px;
-  min-width: 1000px;
+    overflow: hidden;
+    min-height: 300px;
+//   min-width: 1000px;
 }
 .ContenedorImagenFondo{
   position:fixed;

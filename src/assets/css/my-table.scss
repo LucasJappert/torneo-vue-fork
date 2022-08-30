@@ -1,7 +1,7 @@
 .my-table-content{
     width:100%;
     @media (max-width: 800px){
-        overflow-x: scroll;
+        // overflow-x: scroll;
     }
 }
 .my-table{
@@ -13,6 +13,7 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    overflow: hidden;
 
     &-header, &-item{
         max-width: 100%;
@@ -20,12 +21,6 @@
         display: grid;
         align-items: center;
         width: 100%;
-        &.grupoColumns{
-            grid-template-columns: minmax(0, 8fr) repeat(8, minmax(0, 1fr));
-        }
-        &.resultado-columns{
-            grid-template-columns: repeat(4, minmax(0, 2fr)) minmax(0, 1fr) repeat(2, minmax(0, 2fr));
-        }
         &.columnas-seccion-equipos{
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }

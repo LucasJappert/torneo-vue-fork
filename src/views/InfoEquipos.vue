@@ -1,13 +1,11 @@
 <template>
   <div>
-    <div class="view-container">
-      <div class="sub-container">
-         <div class="Equipos">
-          Equipos:
-         </div>
-            <TablasEquipos/>
-      </div>
-    </div>       
+    <div class="sub-container">
+        <div class="Equipos">
+        Equipos:
+        </div>
+        <TablasEquipos/>
+    </div>
   </div>
 </template>
 
@@ -29,7 +27,7 @@ export default {
   left:0px;
   font-weight: bold;
   text-align: left;
- 
+
 
 }
 

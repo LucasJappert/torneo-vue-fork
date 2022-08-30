@@ -246,12 +246,12 @@ export default {
 }
 .IconoHamburguer, .IconoCruz {
     color: white;
-    font-size: 64px;
+    font-size: 3.5rem;
     cursor: pointer;
     position: absolute;
-    left: 40px;
-    top:0;
-    line-height: 165px;
+    left: 20px;
+    top: 0;
+    line-height: 125px;
     font-weight: bold;
 }
 .contenedorMenu{
