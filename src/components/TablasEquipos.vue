@@ -16,22 +16,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="divTable">
-        <div class="divTableHeading">
-            <div class="divTableRow">
-                <div class="divTableHead">Institución</div>
-                <div class="divTableHead">Categoría</div>
-            </div>
-        </div>
-                <div class="divTableBody">
-                    <div v-for="(club, index) in arrayEquipos" :key="index" class="divTableRow">
-                        <div class="divTableCell">{{club.toUpperCase()}}</div>
-                    </div>
-                 </div>
-
-  </div> -->
-
-
 </template>
 
 <script>
@@ -59,14 +43,26 @@ export default {
 
 .my-table{
     border: none;
+    @media (max-width:800px){
+        min-width:auto;
+        width:100%;
+    }
+    &-item{
+        text-align: left;
+        & div:nth-child(2){
+            text-align: right;
+        }
+    }
 }
 .divTableCell, .divTableHead {
     border: 1px solid #fff(214, 38, 38);
 	display: table-cell;
 	padding: 7px 10px;
     font-size: 16px;
-
+    @media (max-width:800px){
+        font-size: 0.9rem;
     }
+}
 
 .my-table-header{
     background-color: #5c9fd6ed;
@@ -75,6 +71,5 @@ export default {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     border-bottom:none;
     font-size: 16px;
-
 }
 </style>

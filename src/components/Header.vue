@@ -23,8 +23,12 @@
                             Equipos
                         </router-link>
                     </div>
-                    <div><a download="Reglamento2022.pdf" href="/src/pdfs/Reglamento2022.pdf">
-                    Reglamento <img class="Pdf" src="../assets/imagenes/pdf.png" ></a></div>
+                    <div>
+                        <a download="Reglamento2022.pdf" href="/src/pdfs/Reglamento2022.pdf">
+                            Reglamento
+                            <img class="Pdf" src="../assets/imagenes/pdf.png" />
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- TODO:Llevar itemMenu a un componente -->
@@ -32,9 +36,7 @@
                 <span>Fase de Grupos</span>
                 <div class="divDesplegable">
                     <div v-for="(item, index) in infoCategorias" :key="index">
-                        <router-link
-                            :to="{ name: 'Zonas', params: { id: item } }"
-                        >
+                        <router-link :to="{ name: 'Zonas', params: { id: item } }" >
                             Categoría {{ item }}
                         </router-link>
                     </div>
@@ -68,13 +70,18 @@
                 </div>
             </div>
             <div v-if="modoEdicion">
-                <button @click="setearModoEdicion(false)">
+                <div @click="setearModoEdicion(false)">
                     <i class="fa fa-power-off"></i>
-                </button>
+                </div>
             </div>
         </div>
 
         <div class="MenuMobile">
+            <div v-if="modoEdicion" class="only-mobile">
+                <div @click="setearModoEdicion(false)">
+                    <i class="fa fa-power-off"></i>
+                </div>
+            </div>
             <div class="NombreClub">
                 <div>ARGENTINO</div>
                 <div>HUMBERTO 1° <span>{{ new Date().getFullYear() }}</span></div>
@@ -122,7 +129,7 @@ $base-color: #5c9fd6;
     position: relative;
     height: 60px;
     width: 100%;
-    display: inline-grid;
+    display: grid;
     align-items: center;
     justify-content: center;
     grid-template-columns: minmax(60px, 60px) repeat(5, minmax(0, 1fr)) minmax(0, 0.3fr);
@@ -212,6 +219,13 @@ $base-color: #5c9fd6;
                 }
             }
         }
+    }
+    .only-mobile{
+        position: absolute;
+        top: 140px;
+        right: 10px;
+        font-size: 2rem;
+        color: red;
     }
 }
 </style>

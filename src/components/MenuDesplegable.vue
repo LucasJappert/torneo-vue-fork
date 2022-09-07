@@ -14,15 +14,15 @@
                            </div>
                         </div>
                         <div class="contedorNivel2" >
-                            <img clas="back" src="../assets/imagenes/back.png" @click="VerNivel1()">
+                            <img class="imgBack" src="../assets/imagenes/back.png" @click="VerNivel1()">
                             <div v-for="(item, index) in ObtenerItemsNivel2" :key="index">
-                                <a v-if="item.urlpdf != null" :download="item.downloadFileName" :href="item.urlpdf">
-                                    <img class="Pdf" src="../assets/imagenes/pdf.png" >
-                                {{item.name}}
-                                </a>
-                                <router-link v-else :to="{ name: item.seccion.name, params:item.seccion.params}">
+                                <router-link @click.native="CerrarMenu()" v-if="item.urlpdf == null" :to="{ name: item.seccion.name, params:item.seccion.params}">
                                     {{item.name}}
                                 </router-link>
+                                <a v-if="item.urlpdf != null" :download="item.downloadFileName" :href="item.urlpdf">
+                                    {{item.name}}
+                                    <img class="imgPdf" src="../assets/imagenes/pdf.png" >
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -322,23 +322,15 @@ export default {
        margin-left: -100%;
     }
 }
-img {
+.imgBack {
     float: left;
     margin-left: 35px;
     width: 65px;
 
 }
- .Pdf{
+ .imgPdf{
     width: 25px;
-    float: right;
-    margin-right: 238px;
-    margin-bottom: -30px;
     margin-top: 5px;
 }
-// .icon{
-//     margin-left: 150px;
-//     width: 100px;
-//     margin-bottom: -130px;
-// }
 
 </style>
