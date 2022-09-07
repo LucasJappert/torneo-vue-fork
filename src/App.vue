@@ -27,7 +27,7 @@ export default {
     mounted(){
 
         setTimeout(() => {
-            console.log(this.$route.query.modoEdicion);
+            // console.log(this.$route.query.modoEdicion);
             if (this.$route.query.modoEdicion === null){
             this.setearModoEdicion(true);
             const primeraParteUrl = window.location.href.split("?")[0];

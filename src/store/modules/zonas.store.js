@@ -18,7 +18,7 @@ export default {
             Object.assign(state, getDefaultState());
         },
         setearZonas(state, infoZonas) {
-            console.log("Zonas actualizadas!");
+            // console.log("Zonas actualizadas!");
             state.infoZonas = infoZonas;
         },
     },

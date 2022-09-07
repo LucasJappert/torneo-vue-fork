@@ -65,9 +65,16 @@
                         </span>
                     </div>
                 </div>
+
                 <div class="aliRight" v-if="modoEdicion">
-                    <div class="button-8 btnCancelar" @click="Cancelar()">Cancelar</div>
-                    <div class="button-7 btnGuardar" @click="Guardar()">Guardar</div>
+                    <button class="button-8 btnCancelar" @click="Cancelar()">Cancelar</button>
+                    <button class="button-7 btn-guardar"
+                        @click="Guardar()"
+                        :class="{'no-hay-cambios': !hayCambios}"
+                        :disabled="!hayCambios"
+                    >
+                        Guardar
+                    </button>
                 </div>
             </div>
         </div>
@@ -109,7 +116,6 @@ export default {
                 partido.Estado = !partido.Estado;
         },
         async Guardar(){
-            console.log(this.hayCambios);
             if(!this.hayCambios)
                 return;
 
@@ -151,9 +157,12 @@ export default {
 
             return Object.values(diccionarioPosiciones).sort((a, b) => {
                 if(a.Ptos == b.Ptos){
+                    if(a.DG == b.DG){
+                        return a.GF < b.GF ? 1 : -1;
+                    }
                     return a.DG < b.DG ? 1 : -1;
                 }
-                    return a.Ptos < b.Ptos ? 1 : -1;
+                return a.Ptos < b.Ptos ? 1 : -1;
             });
         },
         hayCambios(){

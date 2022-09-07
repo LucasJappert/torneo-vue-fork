@@ -21,7 +21,7 @@ Zonas.GetAll = async() => {
 Zonas.Update = async (index, zona) => {
     const año = new Date().getFullYear();
     const categoria = router.default.currentRoute.params.id;
-    console.log({ index, zona });
+    // console.log({ index, zona });
     return await axios
         .patch(`${process.env.VUE_APP_URL_API}/fase-grupos/${año}/${categoria}`, { index, zona })
         .then(true)

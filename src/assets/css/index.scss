@@ -12,10 +12,14 @@ body {
 }
 
 .sub-container{
-    width: 80%;
+    width: 100%;
     display: grid;
     align-items: center;
     justify-items: center;
+    overflow-x: scroll;
+    // & > div:first-child{
+    //     min-width:1000px;
+    // }
 }
 .divTable{
 	display: table;
@@ -149,4 +153,13 @@ input[type=number] {
 }
 .pT20{
     padding-top: 20px;
+}
+.btn-guardar{
+    &.no-hay-cambios{
+        cursor: not-allowed;
+        background-color: rgba(0,0,0,0.5);
+        &:hover{
+            background-color: rgba(0,0,0,0.5);
+        }
+    }
 }
