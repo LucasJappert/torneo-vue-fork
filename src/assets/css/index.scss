@@ -111,6 +111,16 @@ input[type=number] {
   box-shadow: 0 0 5px #ddd;
   line-height: 20px;
 }
+.input-general{
+  border-radius: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 0 5px #ddd;
+  line-height: 20px;
+}
 .pR{ position:relative;}
 
 ::-webkit-scrollbar {

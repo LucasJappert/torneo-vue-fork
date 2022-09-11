@@ -3,7 +3,7 @@ import FaseFinalServices from "../../services/fase-final.services";
 
 const getDefaultState = () => {
     return {
-        faseFinal: null
+        faseFinal: null,
     }
 }
 
@@ -17,7 +17,7 @@ export default {
             Object.assign(state, getDefaultState());
         },
         setearFaseFinal(state, faseFinal) {
-            console.log("faseFinal actualizadas!");
+            // console.log("faseFinal actualizadas!", faseFinal);
             state.faseFinal = faseFinal;
         },
     },
@@ -25,13 +25,16 @@ export default {
         resetState({commit}){
             commit("resetState");
         },
-        async setearFaseFinal({commit}) {
-            const result = await FaseFinalServices.GetAll();
+        async setearFaseFinalFromServer({commit}, tipoCopa) {
+            const result = await FaseFinalServices.GetAll(tipoCopa);
             if(result)
                 commit("setearFaseFinal", result);
             else
                 console.log("Error inesperado!");
 
+        },
+        setFaseFinalFromResult({commit}, result){
+            commit("setearFaseFinal", result);
         }
     }
 }

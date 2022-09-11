@@ -2,13 +2,13 @@ const axios = require("axios");
 const router = require('../router/index');
 
 
-const FaseFinal = () => {};
+const FaseFinalServices = () => {};
 
-FaseFinal.GetAll = async() => {
+FaseFinalServices.GetAll = async(tipoCopa) => {
     const año = new Date().getFullYear();
     const categoria = router.default.currentRoute.params.id;
     return await axios
-        .get(`${process.env.VUE_APP_URL_API}/fase-final/${año}/${categoria}`)
+        .get(`${process.env.VUE_APP_URL_API}/fase-final/${año}/${categoria}/${tipoCopa}`)
         .then(response => {
             if (response.status == 200)
                 return response.data;
@@ -18,7 +18,7 @@ FaseFinal.GetAll = async() => {
         .catch(null);
 }
 
-FaseFinal.Update = async (data) => {
+FaseFinalServices.Update = async (data) => {
     const año = new Date().getFullYear();
     const categoria = router.default.currentRoute.params.id;
     return await axios
@@ -31,4 +31,4 @@ FaseFinal.Update = async (data) => {
 }
 
 
-module.exports = FaseFinal;
+module.exports = FaseFinalServices;

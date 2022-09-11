@@ -10,7 +10,7 @@
     />
 
     <!-- CUARTOS -->
-    <div class="group-container">
+    <div class="group-container" v-if="faseFinalEditada.cuartos.length == 4">
         <div class="text-center title-etapa">CUARTOS DE FINAL</div>
 
         <span v-for="(partido, index) in faseFinalEditada.cuartos" :key="index">
@@ -40,8 +40,11 @@
     <!-- FINAL -->
     <div class="group-container">
         <div class="final-copa-container campeon">
-            <div class="text-center icono-campeon">🏆</div>
-            <div class="title-etapa text-center">FINAL COPA DE ORO</div>
+            <div class="text-center icono-campeon">
+                <img v-if="faseFinal.tipoCopa == 'Oro'" src="../../assets/imagenes/copa-oro.png" alt="Copa Oro" />
+                <img v-if="faseFinal.tipoCopa == 'Plata'" src="../../assets/imagenes/copa-plata.png" alt="Copa Oro" />
+            </div>
+            <div class="title-etapa text-center">FINAL COPA DE {{faseFinal.tipoCopa}}</div>
 
             <BoxInfoPartido
                 :partido="faseFinalEditada.final"
@@ -51,7 +54,7 @@
 
             <div class="pT20 pR" v-if="faseFinalEditada.final.Estado == 1">
                 <div class="B text-center pT10">¡ FELICITACIONES !</div>
-                <div class="B text-center pT10">🏆 {{ getCampeon }} 🏆</div>
+                <div class="B text-center pT10">⭐ {{ getCampeon }} ⭐</div>
             </div>
         </div>
     </div>
@@ -74,34 +77,31 @@
 <script>
 import FaseFinalServices from "../../services/fase-final.services";
 import BoxInfoPartido from "./BoxInfoPartido.vue";
+import { mapState, mapActions } from "vuex";
 export default {
-    name: "FaseFinal8Equipos",
+    name: "FaseFinalEquipos",
     components: { BoxInfoPartido },
-    props: {
-        categoria: {
-            type: Number,
-            require: true
-        }
-    },
     data() {
         return {
             letras: ["A", "B", "C", "D"],
-            faseFinalEditada: null,
-            originalData: null
+            faseFinalEditada: null
         }
     },
+    beforeMount(){
+    },
     mounted(){
-        this.TrySetData();
+        this.faseFinalEditada = JSON.parse(JSON.stringify(this.faseFinal));
     },
     computed: {
+        ...mapState("faseFinal", ["faseFinal"]),
         hayCambios(){
-            return JSON.stringify(this.originalData) !=  JSON.stringify(this.faseFinalEditada);
+            return JSON.stringify(this.faseFinal) !=  JSON.stringify(this.faseFinalEditada);
         },
         cuartosFinalizados(){
-            return this.originalData.cuartos.find(x => x.Estado == false) == null;
+            return this.faseFinal.cuartos.find(x => x.Estado == false) == null;
         },
         semisFinalizadas(){
-            return this.originalData.semis.find(x => x.Estado == false) == null;
+            return this.faseFinal.semis.find(x => x.Estado == false) == null;
         },
         getCampeon(){
             const match = this.faseFinalEditada.final;
@@ -121,10 +121,7 @@ export default {
         }
     },
     methods: {
-        async TrySetData(){
-            this.originalData = await FaseFinalServices.GetAll();
-            this.faseFinalEditada = JSON.parse(JSON.stringify(this.originalData));
-        },
+        ...mapActions("faseFinal", ["setFaseFinalFromResult"]),
         CambiarEstado(partido){
             if(this.modoEdicion)
                 partido.Estado = !partido.Estado;
@@ -134,14 +131,13 @@ export default {
                 partido.Estado = !partido.Estado;
         },
         async Guardar(){
-            console.log("asd");
             if(!this.hayCambios)
                 return;
 
             const result = await FaseFinalServices.Update(this.faseFinalEditada);
             if(result){
-                this.originalData = result;
-                this.faseFinalEditada = JSON.parse(JSON.stringify(this.originalData));
+                this.setFaseFinalFromResult(result);
+                this.faseFinalEditada = JSON.parse(JSON.stringify(this.faseFinal));
             }
             else
                 console.log("No se pudo actualizar la info.");

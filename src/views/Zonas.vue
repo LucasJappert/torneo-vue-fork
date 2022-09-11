@@ -9,9 +9,6 @@
             <div class="" v-for="(zona, index) in infoZonas" :key="index">
                 <InfoZona :zona="zona" :index="Number(index)" @refresh="setearZonas()" ></InfoZona>
             </div>
-            <!-- <div v-for="(item, index) in infoGrupos.arrayGrupos" :key="index">
-                <TablaGrupo :grupo="item" class="mT20" />
-            </div> -->
 
         </div>
     </div>

@@ -38,8 +38,7 @@
 
             <div class="my-table" :class="{'visible': verResultados}">
                 <div class="my-table-header resultado-columns bg-t c-222">
-                    <div>Fecha</div>
-                    <div>Hora</div>
+                    <div>Fecha y Hora</div>
                     <div>Cancha</div>
                     <div>Local</div>
                     <div>Resultado</div>
@@ -48,9 +47,14 @@
                 </div>
 
                 <div class="my-table-item resultado-columns" v-for="partido in zonaEditada">
-                    <div>{{partido.Fecha}}</div>
-                    <div>{{partido.Hora}}</div>
-                    <div>{{partido.Cancha}}</div>
+                    <div v-if="modoEdicion && partido.Estado == 0">
+                        <input class="input-general" type="text" v-model="partido.Fecha" />
+                    </div>
+                    <div v-else>{{partido.Fecha}}</div>
+                    <div v-if="modoEdicion && partido.Estado == 0">
+                        <input class="input-general" type="text" v-model="partido.Cancha" />
+                    </div>
+                    <div v-else>{{partido.Cancha}}</div>
                     <div>{{partido.NombreEquipo1}}</div>
                     <div v-if="modoEdicion && partido.Estado == 0">
                         <input class="input-goles" type="number" v-model="partido.GolesEquipo1" />
@@ -222,7 +226,7 @@ export default {
 }
 
 .resultado-columns{
-    grid-template-columns: repeat(2, minmax(0, 1fr)) repeat(2, minmax(0, 2fr)) minmax(0, 2fr) repeat(2, minmax(0, 2fr));
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
 }
 .container-zonas{
     width:100%;

@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="cont-categoria">
-        <div class="categoria">Categoría {{ año }}</div>
+        <div class="categoria">Categoría {{ categoria }}</div>
     </div>
     <div class="itemCopa">
-      <button :class="{ active: (1 == copaActiva) }" @click="copaActiva = 1">Copa de Oro 🏆</button>
-      <button :class="{ active: (2 == copaActiva) }" @click="copaActiva = 2">
+      <button :class="{ active: (1 == copaActiva) }" @click="ActualizarInfoCopa(1)">Copa de Oro 🏆</button>
+      <button :class="{ active: (2 == copaActiva) }" @click="ActualizarInfoCopa(2)">
         Copa de Plata
         <i
           class="fa fa-trophy"
@@ -14,25 +14,42 @@
       </button>
     </div>
     <div class="overflow-scroll">
-        <FaseFinal8Equipos :categoria="Number($route.params.id)" />
+        <FaseFinalEquipos v-if="faseFinal != null" />
     </div>
   </div>
 </template>
 
 <script>
-import FaseFinal8Equipos from "../components/fase-final/FaseFinal8Equipos.vue";
-// import FaseFinal4Equipos from "../components/fase-final/FaseFinal4Equipos.vue";
+import FaseFinalEquipos from "../components/fase-final/FaseFinalEquipos.vue";
+import { mapState, mapActions } from "vuex";
 export default {
-    components:{ FaseFinal8Equipos },
+    components:{ FaseFinalEquipos },
     data() {
         return {
-        año: "",
-        copaActiva: 1
+            categoria: "",
+            copaActiva: 1
         };
     },
     mounted() {
-        this.año = this.$route.params.id;
+        this.categoria = this.$route.params.id;
+        this.ActualizarInfoCopa(this.copaActiva);
     },
+    computed:{
+        ...mapState("faseFinal", ["faseFinal"]),
+    },
+    methods:{
+        ...mapActions("faseFinal", ["setearFaseFinalFromServer", "resetState"]),
+        ActualizarInfoCopa(tipoCopa){
+            this.resetState();
+            if(tipoCopa == 1){
+                this.copaActiva = 1;
+                this.setearFaseFinalFromServer("Oro");
+            }else{
+                this.copaActiva = 2;
+                this.setearFaseFinalFromServer("Plata");
+            }
+        }
+    }
 };
 </script>
 
