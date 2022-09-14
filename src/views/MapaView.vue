@@ -1,6 +1,6 @@
 <template>
-  <div>
-   <span class="Titulo">Nuestras Canchas:</span>
+  <div class="cont-title">
+   <span class="title">Nuestras Canchas:</span>
     <div>
     <img src="../assets/imagenes/plano.jpg" class="Mapa" />
     </div>
@@ -19,8 +19,13 @@ export default {
     margin-top: 20px;
     width: 800px;
 }
-.Titulo{
-    
+.title{
+    font-size: 1.5em;
+    padding: 5px;
+    font-weight: bold;
+}
+.cont-title{
+    padding: 15px;
 }
     
 </style>
