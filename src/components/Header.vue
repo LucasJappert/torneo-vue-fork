@@ -29,6 +29,12 @@
                             <img class="Pdf" src="../assets/imagenes/pdf.png" />
                         </a>
                     </div>
+                    <div>
+                        <a download="Planilla.pdf" href="/src/pdfs/Planilla.pdf">
+                            Planilla de Buena Fe
+                            <img class="Pdf" src="../assets/imagenes/pdf.png" />
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- TODO:Llevar itemMenu a un componente -->
@@ -66,7 +72,10 @@
             <div class="itemMenu">
                 <span>El Club</span>
                 <div class="divDesplegable">
-                    <div>Canchas</div>
+                    <router-link :to="{ name: 'MapaView' }">
+                        Canchas
+                    </router-link>
+                    
                 </div>
             </div>
             <div v-if="modoEdicion">
@@ -82,15 +91,18 @@
                     <i class="fa fa-power-off"></i>
                 </div>
             </div>
-            <div class="NombreClub">
-                <div>ARGENTINO</div>
-                <div>HUMBERTO 1° <span>{{ new Date().getFullYear() }}</span></div>
-            </div>
-            <img
-                src="../assets/imagenes/logoClub.png"
-                class="logoClub"
-                alt=""
-            />
+            <router-link :to="{ name: 'home' }" class="linkLogo">
+                <div class="NombreClub">
+                    <div>ARGENTINO</div>
+                    <div>HUMBERTO 1° <span>{{ new Date().getFullYear() }}</span></div>
+                </div>
+                
+                <img
+                    src="../assets/imagenes/logoClub.png"
+                    class="logoClub"
+                    alt=""
+                />
+            </router-link>
 
             <MenuDesplegable />
         </div>
@@ -196,9 +208,11 @@ $base-color: #5c9fd6;
         align-items: center;
         justify-content: right;
         padding-right: 10px;
-        & .logoClub {
-            height: 80%;
+        
+        & > .logoClub {
+            height: 110px;
         }
+        
         & .NombreClub {
             font-weight: bold;
             color: white;
@@ -206,20 +220,33 @@ $base-color: #5c9fd6;
             text-align: left;
             font-size: 1.2rem;
             // font-size: 24px;
+           
             & div:nth-child(1) {
                 font-size: 2rem;
+                
             }
             & div:nth-child(2) {
                 font-size: 1em;
                 align-items: center;
                 display: flex;
+                
                 & span {
                     // font-size: 2rem;
                     margin-left: 10px;
                 }
             }
         }
+        
     }
+    .linkLogo{
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        text-decoration: none;
+        }
+    .logoClub {
+            height: 110px;
+        }
     .only-mobile{
         position: absolute;
         top: 140px;

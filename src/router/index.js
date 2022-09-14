@@ -40,6 +40,11 @@ const routes = [
     name: 'FaseFinalView',
     component: () => import ("../views/FaseFinalView")
   },
+  {
+    path: '/Canchas',
+    name: 'MapaView',
+    component: () => import ("../views/MapaView")
+  },
 ]
 
 const router = new VueRouter({

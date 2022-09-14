@@ -70,6 +70,15 @@ export default {
                             downloadFileName:"Reglamento2022.pdf"
 
                         },
+                        {
+                            name:"Planilla de Buena Fe",
+                            seccion: {
+                                name: '',
+                            },
+                            urlpdf:"/src/pdfs/Planilla.pdf",
+                            downloadFileName:"Planilla.pdf"
+
+                        }
                     ]
 
                 },
