@@ -188,7 +188,7 @@ export default {
                     items:[{
                             name:"Categoría 2016",
                             seccion: {
-
+                                
 
                             }
                         }]
@@ -198,7 +198,7 @@ export default {
                     items:[{
                             name:"Canchas",
                             seccion: {
-
+                                name:'MapaView',
 
                             }
                         }]
