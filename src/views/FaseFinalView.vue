@@ -4,8 +4,8 @@
         <div class="categoria">Categoría {{ categoria }}</div>
     </div>
     <div class="itemCopa">
-      <button :class="{ active: (1 == copaActiva) }" @click="ActualizarInfoCopa(1)">Copa de Oro 🏆</button>
-      <button :class="{ active: (2 == copaActiva) }" @click="ActualizarInfoCopa(2)">
+      <button :class="{ active: (1 == copaActiva) }" @click="ClickCopa(1)">Copa de Oro 🏆</button>
+      <button :class="{ active: (2 == copaActiva) }" @click="ClickCopa(2)">
         Copa de Plata
         <i
           class="fa fa-trophy"
@@ -31,6 +31,8 @@ export default {
         };
     },
     mounted() {
+        this.copaActiva = this.$route.query.copa ?? 1;
+
         this.categoria = this.$route.params.id;
         this.ActualizarInfoCopa(this.copaActiva);
     },
@@ -39,6 +41,10 @@ export default {
     },
     methods:{
         ...mapActions("faseFinal", ["setearFaseFinalFromServer", "resetState"]),
+        ClickCopa(tipoCopa){
+            if(tipoCopa != this.copaActiva)
+                this.$router.push({ name: 'FaseFinalView', query: { copa: tipoCopa }});
+        },
         ActualizarInfoCopa(tipoCopa){
             this.resetState();
             if(tipoCopa == 1){

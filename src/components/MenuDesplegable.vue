@@ -41,7 +41,7 @@ export default {
             ItemsNivel1: ["INFORMACIÓN","FASE DE GRUPOS","FASE FINAL","EL CLUB"],
             Items:{
                 1: {
-                    name:"INFORMACIÓN 🢂",
+                    name:"INFORMACIÓN →",
                     items:[
                         {
                             name:"Categorías",
@@ -83,7 +83,7 @@ export default {
 
                 },
                 2:{
-                    name:"FASE DE GRUPOS 🢂",
+                    name:"FASE DE GRUPOS →",
                     items: [
                         {
                             name:"Categoria 2012",
@@ -133,7 +133,7 @@ export default {
                     ]
                 },
                 3:{
-                    name:"FASE FINAL 🢂",
+                    name:"FASE FINAL →",
                     items: [
                         {
                             name:"Categoria 2012",
@@ -184,17 +184,17 @@ export default {
 
                 },
                  4:{
-                    name:"NO COMPETITIVO🢂",
+                    name:"NO COMPETITIVO →",
                     items:[{
                             name:"Categoría 2016",
                             seccion: {
-                                
+
 
                             }
                         }]
                 },
                 5:{
-                    name:"EL CLUB 🢂",
+                    name:"EL CLUB →",
                     items:[{
                             name:"Canchas",
                             seccion: {
