@@ -1,10 +1,13 @@
 <template>
-  <div class="cont-title">
-   <span class="title">Nuestras Canchas:</span>
     <div>
-    <img src="../assets/imagenes/plano.jpg" class="Mapa" />
+        <div class="cont-title">
+            <span class="title">Nuestras Canchas:</span>
+        </div>
+
+        <div class="image-container">
+            <img src="../assets/imagenes/plano.webp" class="Mapa" alt="Imagen canchas" />
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -13,10 +16,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+@import "../assets/css/mapa-view.scss";
 .Mapa{
-    margin-top: 20px;
     width: 800px;
 }
 .title{
@@ -24,8 +26,11 @@ export default {
     padding: 5px;
     font-weight: bold;
 }
+.image-container{
+    overflow-x: scroll;
+}
 .cont-title{
     padding: 15px;
 }
-    
+
 </style>

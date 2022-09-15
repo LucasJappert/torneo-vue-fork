@@ -6,6 +6,8 @@
     <Header />
     <div class="view-container">
       <router-view :key="$route.fullPath"/>
+
+      <SlideAuspiciantes />
     </div>
     <br>
     <br>
@@ -22,10 +24,10 @@ export default {
         Header,
     },
     created(){
+        document.title = `Torneo Humbertito ${new Date().getFullYear()}`;
         this.intentoSetearModoEdicionDesdeLocalStorage();
     },
     mounted(){
-
         setTimeout(() => {
             // console.log(this.$route.query.modoEdicion);
             if (this.$route.query.modoEdicion === null){

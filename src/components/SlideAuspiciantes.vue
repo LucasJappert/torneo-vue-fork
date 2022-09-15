@@ -88,6 +88,7 @@ export default {
         background: repeat center center;
         background-size: contain;
         border-radius:5px;
+        background-color: white;
         // border-bottom: 1px solid #000;
         cursor: pointer;
         @media(max-width: 800px){

@@ -8,6 +8,9 @@ Vue.config.productionTip = false
 import globalMixin from "./mixins/global.mixin";
 Vue.mixin(globalMixin);
 
+import SlideAuspiciantes from "./components/SlideAuspiciantes.vue";
+Vue.component('SlideAuspiciantes', SlideAuspiciantes);
+
 new Vue({
   router,
   store,

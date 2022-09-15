@@ -75,7 +75,6 @@
                     <router-link :to="{ name: 'MapaView' }">
                         Canchas
                     </router-link>
-                    
                 </div>
             </div>
             <div v-if="modoEdicion">
@@ -96,7 +95,7 @@
                     <div>ARGENTINO</div>
                     <div>HUMBERTO 1° <span>{{ new Date().getFullYear() }}</span></div>
                 </div>
-                
+
                 <img
                     src="../assets/imagenes/logoClub.png"
                     class="logoClub"
@@ -151,7 +150,7 @@ $base-color: #5c9fd6;
     font-family: fantasy;
     text-shadow: 1px 1px 1px #0e0e0e;
     font-size: 20px;
-    & a {
+    & > a {
         height:60px;
     }
     & .itemMenu {
@@ -170,7 +169,9 @@ $base-color: #5c9fd6;
             overflow: hidden;
             opacity:0;
             line-height: 35px;
-            & div {
+            & div, a {
+                width:100%;
+                display:block;
                 padding: 5px 10px;
                 background-color: #5a6f80;
                 &:hover {
@@ -208,11 +209,11 @@ $base-color: #5c9fd6;
         align-items: center;
         justify-content: right;
         padding-right: 10px;
-        
+
         & > .logoClub {
             height: 110px;
         }
-        
+
         & .NombreClub {
             font-weight: bold;
             color: white;
@@ -220,23 +221,23 @@ $base-color: #5c9fd6;
             text-align: left;
             font-size: 1.2rem;
             // font-size: 24px;
-           
+
             & div:nth-child(1) {
                 font-size: 2rem;
-                
+
             }
             & div:nth-child(2) {
                 font-size: 1em;
                 align-items: center;
                 display: flex;
-                
+
                 & span {
                     // font-size: 2rem;
                     margin-left: 10px;
                 }
             }
         }
-        
+
     }
     .linkLogo{
         display: flex;
