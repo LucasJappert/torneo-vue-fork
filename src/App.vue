@@ -24,6 +24,13 @@ export default {
         Header,
     },
     created(){
+        console.log(process.env.VUE_APP_ENV);
+        if(process.env.VUE_APP_ENV != "DEV"){
+            if (location.href.match(/^http:/i)){
+                location.replace(location.href.replace(/^http:/i, 'https:'));
+                return;
+            }
+        }
         document.title = `Torneo Humbertito ${new Date().getFullYear()}`;
         this.intentoSetearModoEdicionDesdeLocalStorage();
     },

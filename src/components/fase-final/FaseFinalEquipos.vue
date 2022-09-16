@@ -60,7 +60,7 @@
     </div>
 
     <!-- TERCERO -->
-    <div class="group-container text-center">
+    <div class="group-container text-center" v-if="faseFinal.tipoCopa != 'Plata'">
         <div class="final-copa-container">
             <div class="text-center icono-puesto-3">🥉</div>
             <div class="title-etapa text-center">3° PUESTO</div>
