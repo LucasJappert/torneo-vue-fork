@@ -25,7 +25,6 @@ name: 'TablasGrupos',
     },
   async mounted(){
     await this.setearZonas();
-    console.log(this.infoZonas);
 
   },
   computed: {
