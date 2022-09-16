@@ -46,7 +46,7 @@
                     <div>Estado</div>
                 </div>
 
-                <div class="my-table-item resultado-columns" v-for="partido in zonaEditada">
+                <div class="my-table-item resultado-columns" v-for="partido in getZonaEditadaOrdenadaPorHorario">
                     <div v-if="modoEdicion && partido.Estado == 0">
                         <input class="input-general" type="text" v-model="partido.Fecha" />
                     </div>
@@ -109,6 +109,7 @@ export default {
     },
     mounted(){
         this.zonaEditada = JSON.parse(JSON.stringify(this.zona));
+        console.log(this.getZonaEditadaOrdenadaPorHorario);
     },
     methods:{
         getDescripcionEstado(estado){
@@ -135,6 +136,9 @@ export default {
         }
     },
     computed:{
+        getZonaEditadaOrdenadaPorHorario(){
+            return this.zonaEditada.sort((a, b) => a.Fecha < b.Fecha ? -1 : 1);
+        },
         getPosiciones(){
             let diccionarioPosiciones = {};
             this.zonaEditada.forEach(partido => {
