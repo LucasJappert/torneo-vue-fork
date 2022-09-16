@@ -109,7 +109,6 @@ export default {
     },
     mounted(){
         this.zonaEditada = JSON.parse(JSON.stringify(this.zona));
-        console.log(this.getZonaEditadaOrdenadaPorHorario);
     },
     methods:{
         getDescripcionEstado(estado){
