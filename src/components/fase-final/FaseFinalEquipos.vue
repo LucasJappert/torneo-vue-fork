@@ -70,7 +70,18 @@
                 </div>
             </div>
         </div>
+        <div class="final-copa-container">
+            <div class="text-center icono-puesto-3">🏅</div>
+            <div class="title-etapa text-center">4° PUESTO</div>
+            <div>
+                <div class="equipo-container puesto-3 team-name text-center">
+                    {{ faseFinalEditada.cuarto }}
+                </div>
+            </div>
+        </div>
     </div>
+
+
   </div>
 </template>
 
@@ -91,6 +102,7 @@ export default {
     },
     mounted(){
         this.faseFinalEditada = JSON.parse(JSON.stringify(this.faseFinal));
+        console.log(this.faseFinal);
     },
     computed: {
         ...mapState("faseFinal", ["faseFinal"]),

@@ -45,6 +45,11 @@ const routes = [
     name: 'MapaView',
     component: () => import ("../views/MapaView")
   },
+  {
+    path: '/no-competitivo/:id',
+    name: 'NoCompetitivoView',
+    component: () => import ("../views/no-competitivo/NoCompetitivoView")
+  },
 ]
 
 const router = new VueRouter({

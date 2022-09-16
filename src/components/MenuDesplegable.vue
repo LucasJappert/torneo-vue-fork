@@ -171,27 +171,22 @@ export default {
                                 }
                             }
                         },
-                        // {
-                        //     name:"Categoria 2016",
-                        //     seccion: {
-                        //         name: 'FaseFinalView',
-                        //         params: {
-                        //             id: 2016
-                        //         }
-                        //     }
-                        // }
                     ]
 
                 },
                  4:{
                     name:"NO COMPETITIVO →",
-                    items:[{
+                    items:[
+                        {
                             name:"Categoría 2016",
                             seccion: {
-
-
+                                name: 'NoCompetitivoView',
+                                params: {
+                                    id: 2016
+                                }
                             }
-                        }]
+                        }
+                    ]
                 },
                 5:{
                     name:"EL CLUB →",

@@ -66,7 +66,16 @@
             <div class="itemMenu">
                 <span>No Competitivo</span>
                 <div class="divDesplegable">
-                    <div>Categoría 2016</div>
+                    <div>
+                        <router-link
+                            :to="{
+                                name: 'NoCompetitivoView',
+                                params: { id: 2016 },
+                            }"
+                        >
+                            Categoría 2016
+                        </router-link>
+                    </div>
                 </div>
             </div>
             <div class="itemMenu">
