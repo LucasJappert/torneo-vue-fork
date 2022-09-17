@@ -1,9 +1,19 @@
 <template>
     <div>
         <div class="fecha-text">
-            {{ partido.Fecha }}
-            <br>
-            Cancha {{ partido.Cancha }}
+            <div v-if="modoEdicion && partido.Estado == 0">
+                <input class="input-general" type="text" v-model="partido.Fecha" />
+            </div>
+            <div v-if="!modoEdicion">
+                {{ partido.Fecha }}
+            </div>
+            Cancha
+            <span v-if="modoEdicion && partido.Estado == 0">
+                <input class="input-general cancha" type="text" v-model="partido.Cancha" />
+            </span>
+            <span v-if="!modoEdicion">
+                {{ partido.Cancha }}
+            </span>
         </div>
         <div class="pR">
             <div class="Estado" :class="{'Finalizado': partido.Estado==1}" @click="cambiarEstado(partido)">
@@ -82,4 +92,13 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/css/fase-final.scss";
+.input-general{
+    text-align: left;
+    width: 140px;
+    font-size:1rem;
+    &.cancha{
+        width: 40px;
+        text-align: center;
+    }
+}
 </style>

@@ -102,7 +102,6 @@ export default {
     },
     mounted(){
         this.faseFinalEditada = JSON.parse(JSON.stringify(this.faseFinal));
-        console.log(this.faseFinal);
     },
     computed: {
         ...mapState("faseFinal", ["faseFinal"]),
