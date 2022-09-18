@@ -4,14 +4,14 @@
             <div v-if="modoEdicion && partido.Estado == 0">
                 <input class="input-general" type="text" v-model="partido.Fecha" />
             </div>
-            <div v-if="!modoEdicion">
+            <div v-else>
                 {{ partido.Fecha }}
             </div>
             Cancha
             <span v-if="modoEdicion && partido.Estado == 0">
                 <input class="input-general cancha" type="text" v-model="partido.Cancha" />
             </span>
-            <span v-if="!modoEdicion">
+            <span v-else>
                 {{ partido.Cancha }}
             </span>
         </div>
