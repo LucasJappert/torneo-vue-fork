@@ -26,6 +26,9 @@
             <div class="slide">
                 <div class="bg-slide-5"></div>
             </div>
+            <div class="slide">
+                <div class="bg-slide-6"></div>
+            </div>
         </VueAgile>
     </div>
 </template>
@@ -78,19 +81,18 @@ export default {
     padding:10px;
         box-sizing: border-box;
     & > div{
-        // height: 300px;
-        width:100%;
+        width: 100%;
         aspect-ratio: 16/9;
         padding: 10px;
         box-sizing: border-box;
-        border: 1px solid rgba(0,0,0,0.5);
-        box-shadow:0 0 10px rgba(0,0,0,0.5);
-        background: repeat center center;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         background-size: contain;
-        border-radius:5px;
+        border-radius: 5px;
         background-color: white;
-        // border-bottom: 1px solid #000;
         cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: center;
         @media(max-width: 800px){
             // height: 250px;
         }
@@ -102,14 +104,18 @@ export default {
         background-image: url("~@/assets/imagenes/auspiciantes/ComunaHto-Color.webp");
     }
     & .bg-slide-3{
-        background-image: url("~@/assets/imagenes/auspiciantes/Diputados-Color.webp");
+        background-image: url("~@/assets/imagenes/auspiciantes/AMASCA.webp");
     }
     & .bg-slide-4{
-        background-image: url("~@/assets/imagenes/auspiciantes/Ferreter195173aBul195179n-Color.webp");
+        background-image: url("~@/assets/imagenes/auspiciantes/EDMA.webp");
     }
     & .bg-slide-5{
-        background-image: url("~@/assets/imagenes/auspiciantes/SancorSeguros-Color.webp");
+        background-image: url("~@/assets/imagenes/auspiciantes/SANCOR.webp");
     }
+    & .bg-slide-6{
+        background-image: url("~@/assets/imagenes/auspiciantes/SANJUAN.webp");
+    }
+    
 }
 .titulo{
     font-size: 1.5rem;

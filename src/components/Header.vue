@@ -24,7 +24,7 @@
                         </router-link>
                     </div>
                     <div>
-                        <a download="Reglamento2022.pdf" href="/src/pdfs/Reglamento2022.pdf">
+                        <a download="Reglamento2023.pdf" href="/src/pdfs/Reglamento2023.pdf">
                             Reglamento
                             <img class="Pdf" src="../assets/imagenes/pdf.png" />
                         </a>
@@ -66,16 +66,16 @@
             <div class="itemMenu">
                 <span>No Competitivo</span>
                 <div class="divDesplegable">
-                    <div>
+                    <!-- <div>
                         <router-link
                             :to="{
                                 name: 'NoCompetitivoView',
-                                params: { id: 2016 },
+                                params: { id: 2017 },
                             }"
                         >
-                            Categoría 2016
+                            Categoría 2017
                         </router-link>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="itemMenu">
@@ -127,7 +127,7 @@ export default {
     },
     data() {
         return {
-            infoCategorias: [2012, 2013, 2014, 2015],
+            infoCategorias: [2013, 2014, 2015, 2016],
         };
     },
     computed: {

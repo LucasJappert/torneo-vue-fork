@@ -86,15 +86,6 @@ export default {
                     name:"FASE DE GRUPOS →",
                     items: [
                         {
-                            name:"Categoria 2012",
-                            seccion: {
-                                name: 'Zonas',
-                                params: {
-                                    id: 2012
-                                }
-                            }
-                        },
-                        {
                             name:"Categoria 2013",
                             seccion: {
                                 name: 'Zonas',
@@ -118,6 +109,15 @@ export default {
                                 name: 'Zonas',
                                 params: {
                                     id: 2015
+                                }
+                            }
+                        },
+                        {
+                            name:"Categoria 2016",
+                            seccion: {
+                                name: 'Zonas',
+                                params: {
+                                    id: 2016
                                 }
                             }
                         },
@@ -136,15 +136,6 @@ export default {
                     name:"FASE FINAL →",
                     items: [
                         {
-                            name:"Categoria 2012",
-                            seccion: {
-                                name: 'FaseFinalView',
-                                params: {
-                                    id: 2012
-                                }
-                            }
-                        },
-                        {
                             name:"Categoria 2013",
                             seccion: {
                                 name: 'FaseFinalView',
@@ -171,22 +162,31 @@ export default {
                                 }
                             }
                         },
+                        {
+                            name:"Categoria 2016",
+                            seccion: {
+                                name: 'FaseFinalView',
+                                params: {
+                                    id: 2016
+                                }
+                            }
+                        },
                     ]
 
                 },
                  4:{
                     name:"NO COMPETITIVO →",
-                    items:[
-                        {
-                            name:"Categoría 2016",
-                            seccion: {
-                                name: 'NoCompetitivoView',
-                                params: {
-                                    id: 2016
-                                }
-                            }
-                        }
-                    ]
+                    // items:[
+                    //     {
+                    //         name:"Categoría 2016",
+                    //         seccion: {
+                    //             name: 'NoCompetitivoView',
+                    //             params: {
+                    //                 id: 2016
+                    //             }
+                    //         }
+                    //     }
+                    // ]
                 },
                 5:{
                     name:"EL CLUB →",
