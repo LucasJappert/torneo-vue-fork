@@ -24,6 +24,11 @@
                         </router-link>
                     </div>
                     <div>
+                        <router-link :to="{ name: 'Telefonos' }">
+                            Teléfonos Útiles
+                        </router-link>
+                    </div>
+                    <div>
                         <a download="Reglamento2023.pdf" href="/src/pdfs/Reglamento2023.pdf">
                             Reglamento
                             <img class="Pdf" src="../assets/imagenes/pdf.png" />

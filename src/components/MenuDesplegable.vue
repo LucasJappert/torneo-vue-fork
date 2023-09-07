@@ -62,6 +62,12 @@ export default {
                             },
                         },
                         {
+                            name:"Teléfonos Útiles",
+                            seccion: {
+                                name: 'Telefonos',
+                            },
+                        },
+                        {
                             name:"Reglamento",
                             seccion: {
                                 name: '',

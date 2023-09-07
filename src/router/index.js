@@ -26,6 +26,11 @@ const routes = [
     component: () => import ("../views/InfoEquipos")
   },
   {
+    path: '/Telefonos',
+    name: 'Telefonos',
+    component: () => import ("../views/Telefonos")
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import ("../views/Login")
