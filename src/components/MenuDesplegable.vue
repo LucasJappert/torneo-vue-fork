@@ -310,7 +310,7 @@ export default {
     & > .contedorNivel2{
         & > div {
             & > a{
-                padding: 30px;
+                padding: 19px;
                 width: 100%;
                 display: block;
                 text-decoration: none;
