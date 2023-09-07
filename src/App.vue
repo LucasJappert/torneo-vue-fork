@@ -96,7 +96,7 @@ body{
 .ImagenFondo{
   height:100%;
   width:100%;
-  background-image: url("./assets/imagenes/bandera.jpg");
+  background-image: url("./assets/imagenes/fondo.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

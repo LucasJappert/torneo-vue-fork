@@ -5,7 +5,7 @@
         </div>
 
         <div class="image-container">
-            <img src="../assets/imagenes/plano.webp" class="Mapa" alt="Imagen canchas" />
+            <img src="../assets/imagenes/cancha.webp" class="Mapa" alt="Imagen canchas" />
         </div>
     </div>
 </template>
