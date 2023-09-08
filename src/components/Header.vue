@@ -105,16 +105,23 @@
                 </div>
             </div>
             <router-link :to="{ name: 'home' }" class="linkLogo">
-                <div class="NombreClub">
-                    <div>ARGENTINO</div>
-                    <div>HUMBERTO 1° <span>{{ new Date().getFullYear() }}</span></div>
+                <!-- <div class="NombreClub">
+                    <div>HUMBERTITO</div>
+                    <div> <span>{{ new Date().getFullYear() }}</span></div>
                 </div>
 
                 <img
                     src="../assets/imagenes/logoClub.png"
                     class="logoClub"
                     alt=""
-                />
+                /> -->
+                <div class="NombreClub">
+                    <img
+                        src="../assets/imagenes/encabezado.jpg"
+                        alt="Nombre del Club"
+                        class="nombreClubImg"
+                    />
+                </div>
             </router-link>
 
             <MenuDesplegable />
@@ -217,7 +224,7 @@ $base-color: #5c9fd6;
     }
     .MenuMobile {
         height: 125px;
-        background-color: $base-color;
+        background-color: #89bbee;
         width: 100%;
         display: flex;
         align-items: center;
@@ -228,12 +235,33 @@ $base-color: #5c9fd6;
             height: 110px;
         }
 
+        // & .NombreClub {
+        //     font-weight: bold;
+        //     color: #01309c;
+        //     margin-left: 5px;
+        //     text-align: left;
+        //     font-size: 1.2rem;
+        //     border-radius: 10px;
+
         & .NombreClub {
-            font-weight: bold;
-            color: white;
+            /* Estilos para el contenedor del nombre del club */
+            display: flex;
+            align-items: center;
             margin-left: 5px;
             text-align: left;
             font-size: 1.2rem;
+            border-radius: 10px;
+        }
+
+        & .nombreClubImg {
+            /* Estilos para la imagen del nombre del club */
+            max-height: 125px; /* Ajusta el tamaño de la imagen según tus necesidades */
+            margin-right: 10px; /* Espacio entre la imagen y otros elementos */
+        }
+
+        
+           
+            
             // font-size: 24px;
 
             & div:nth-child(1) {
@@ -269,5 +297,5 @@ $base-color: #5c9fd6;
         font-size: 2rem;
         color: red;
     }
-}
+
 </style>
