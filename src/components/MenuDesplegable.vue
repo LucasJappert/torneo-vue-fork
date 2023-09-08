@@ -72,8 +72,8 @@ export default {
                             seccion: {
                                 name: '',
                             },
-                            urlpdf:"/src/pdfs/Reglamento2022.pdf",
-                            downloadFileName:"Reglamento2022.pdf"
+                            urlpdf:"/src/pdfs/Reglamento2023.pdf",
+                            downloadFileName:"Reglamento2023.pdf"
 
                         },
                         {
