@@ -20,7 +20,8 @@ const InfoEquipo = function (nombre){
         this.GF += Number(golesAFavor);
         this.GC += Number(golesEnContra);
         this.DG = this.GF - this.GC;
-        this.Ptos += puntosGanados;
+
+        if (!this.Nombre.includes("INTERZONAL")) this.Ptos += puntosGanados;
     }
 }
 
