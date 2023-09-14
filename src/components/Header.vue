@@ -71,7 +71,7 @@
             <div class="itemMenu">
                 <span>No Competitivo</span>
                 <div class="divDesplegable">
-                    <!-- <div>
+                    <div>
                         <router-link
                             :to="{
                                 name: 'NoCompetitivoView',
@@ -80,7 +80,7 @@
                         >
                             Categoría 2017
                         </router-link>
-                    </div> -->
+                    </div>
                 </div>
             </div>
             <div class="itemMenu">
