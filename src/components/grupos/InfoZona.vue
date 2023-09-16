@@ -20,7 +20,8 @@
 
                 </div>
                 <div class="my-table-item grupoColumns" v-for="(equipo, index) in getPosiciones" :key="index">
-                    <div class="aliLeft">{{equipo.Nombre}}</div>
+                    <!-- <div class="aliLeft">{{equipo.Nombre}}</div> -->
+                    <div v-if="equipo.Nombre !== 'INTERZONAL'" class="aliLeft">{{equipo.Nombre}}</div>
                     <div>{{equipo.PJ}}</div>
                     <div>{{equipo.PG}}</div>
                     <div>{{equipo.PE}}</div>
@@ -162,7 +163,12 @@ export default {
                 }
             });
 
-            return Object.values(diccionarioPosiciones).sort((a, b) => {
+            const posicionesFiltradas = Object.values(diccionarioPosiciones).filter(
+            (equipo) => !equipo.Nombre.includes("INTERZONAL")
+            );
+
+            // return Object.values(diccionarioPosiciones).sort((a, b) => {
+                return posicionesFiltradas.sort((a, b) => {
                 if (a.Nombre.includes("INTERZONAL")) return 1;
                 if(a.Ptos == b.Ptos){
                     if(a.DG == b.DG){
