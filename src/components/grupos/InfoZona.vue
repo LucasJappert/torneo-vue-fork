@@ -163,6 +163,7 @@ export default {
             });
 
             return Object.values(diccionarioPosiciones).sort((a, b) => {
+                if (a.Nombre.includes("INTERZONAL")) return 1;
                 if(a.Ptos == b.Ptos){
                     if(a.DG == b.DG){
                         return a.GF < b.GF ? 1 : -1;
